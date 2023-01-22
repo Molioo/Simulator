@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Walking simulator/Library/
+Walking simulator/Logs/
+Walking simulator/obj/
