@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 676527153}
   - component: {fileID: 676527152}
   - component: {fileID: 676527151}
-  - component: {fileID: 676527154}
+  - component: {fileID: 676527155}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -270,7 +270,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &676527154
+--- !u!114 &676527155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,17 +279,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 676527150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e30682c720b6694681a0eb8b7252ad3, type: 3}
+  m_Script: {fileID: 11500000, guid: b270b73957966664bb3e14659389bcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 3
-  mouseX: 0
-  mouseY: 0
-  maxUpAngle: 80
-  maxDownAngle: -80
-  player: {fileID: 881284681}
-  CameraPosition: {fileID: 193107248}
-  rotZ: 0
+  _playerTransform: {fileID: 881284681}
+  _cameraPositionTransform: {fileID: 193107248}
+  _cameraSensitivity: 3
+  _maxUpAngle: 80
+  _maxDownAngle: -80
 --- !u!1 &725633381
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +395,6 @@ GameObject:
   - component: {fileID: 881284681}
   - component: {fileID: 881284680}
   - component: {fileID: 881284679}
-  - component: {fileID: 881284678}
   - component: {fileID: 881284682}
   m_Layer: 2
   m_Name: Player
@@ -407,28 +403,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &881284678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881284675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec39ce101b75a44ba203f9e9cbaa8b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 8
-  runSpeed: 12
-  changeInStageSpeed: 10
-  maximumPlayerSpeed: 150
-  vInput: 0
-  hInput: 0
-  groundChecker: {fileID: 96075414}
-  groundCheckerDist: 0.9
-  jumpForce: 500
-  jumpCooldown: 1
 --- !u!54 &881284679
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -483,7 +457,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881284675}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a731fcf935d3d2448213406a49b4d9e, type: 3}
   m_Name: 
@@ -494,7 +468,7 @@ MonoBehaviour:
   _jumpForce: 500
   _jumpCooldown: 1
   _groundChecker: {fileID: 96075414}
-  _groundCheckerDist: 0.2
+  _groundCheckerDist: 0.9
 --- !u!1 &1234695721
 GameObject:
   m_ObjectHideFlags: 0
