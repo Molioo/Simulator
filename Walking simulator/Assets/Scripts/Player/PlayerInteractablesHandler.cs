@@ -34,7 +34,7 @@ public class PlayerInteractablesHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(_currentlyFocusedInteractable!=null)
+            if(_currentlyFocusedInteractable!=null && _currentlyFocusedInteractable.CanBeUsed())
             {
                 _currentlyFocusedInteractable.Interact(this);
             }
