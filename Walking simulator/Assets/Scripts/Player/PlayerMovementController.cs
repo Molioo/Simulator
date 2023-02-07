@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-
+    [Header("Other components")]
+    [SerializeField] private Animator _playerAnimator=null;
 
     [Header("Movement properties")]
-
     [SerializeField] private float _walkSpeed = 8f;
     [SerializeField] private float _runSpeed = 12f;
     [SerializeField] private float _maximumPlayerSpeed = 150.0f;
@@ -38,6 +38,7 @@ public class PlayerMovementController : MonoBehaviour
         SetIsGrounded();
         SetInputValues();
         HandleMovement();
+        SetAnimatorValues();
     }
 
     private void InitializeComponents()
@@ -55,6 +56,12 @@ public class PlayerMovementController : MonoBehaviour
     {
         _verticalInput = Input.GetAxisRaw("Vertical");
         _horizontalInput = Input.GetAxisRaw("Horizontal");
+    }
+
+    private void SetAnimatorValues()
+    {
+        _playerAnimator.SetFloat("Horizontal", _horizontalInput);
+        _playerAnimator.SetFloat("Vertical", _verticalInput);
     }
 
     private void HandleMovement()
