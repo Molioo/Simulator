@@ -3,6 +3,10 @@ using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
+    public string InteractionText;
+
+    public float InteractionDistance = 10;
+
     [SerializeField]
     private UnityEvent _onPlayerInteract = null;
 

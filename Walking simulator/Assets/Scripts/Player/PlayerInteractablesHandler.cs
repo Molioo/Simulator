@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class PlayerInteractablesHandler : MonoBehaviour
 {
+    public static InteractableObject CurrentlyFocusedInteractable = null;
+
     [SerializeField]
     private FPSCameraController _cameraController;
 
     [SerializeField]
     private LayerMask _objectsRaycastLayerMask;
 
-    private InteractableObject _currentlyFocusedInteractable = null;
+    private float _distanceToCurrentObject;
 
     private void Update()
     {
@@ -18,14 +20,21 @@ public class PlayerInteractablesHandler : MonoBehaviour
 
     private void RaycastForInteractableObjects()
     {
-            _currentlyFocusedInteractable = null;
+        CurrentlyFocusedInteractable = null;
 
         RaycastHit hit;
-        if (Physics.Raycast(_cameraController.transform.position,_cameraController.transform.forward,out hit,100))
+        if (Physics.Raycast(_cameraController.transform.position, _cameraController.transform.forward, out hit, 100))
         {
-            if(hit.collider.gameObject.TryGetComponent(out InteractableObject interactable))
+            if (hit.collider.gameObject.TryGetComponent(out InteractableObject interactable))
             {
-                _currentlyFocusedInteractable = interactable;
+                if (!interactable.CanBeUsed())
+                    return;
+
+                _distanceToCurrentObject = Vector3.Distance(transform.position, hit.collider.transform.position);
+                if (_distanceToCurrentObject > interactable.InteractionDistance)
+                    return;
+
+                CurrentlyFocusedInteractable = interactable;
             }
         }
     }
@@ -34,9 +43,9 @@ public class PlayerInteractablesHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(_currentlyFocusedInteractable!=null && _currentlyFocusedInteractable.CanBeUsed())
+            if (CurrentlyFocusedInteractable != null && CurrentlyFocusedInteractable.CanBeUsed())
             {
-                _currentlyFocusedInteractable.Interact(this);
+                CurrentlyFocusedInteractable.Interact(this);
             }
         }
     }
