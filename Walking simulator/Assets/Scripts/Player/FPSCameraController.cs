@@ -2,9 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
-public class FPSCameraController : MonoBehaviour
+public class FPSCameraController : Singleton<FPSCameraController>
 {
-
     [SerializeField] private Transform _playerTransform = null;
     [SerializeField] private Transform _cameraPositionTransform = null;
 
@@ -19,17 +18,14 @@ public class FPSCameraController : MonoBehaviour
     private float _rotY = 0.0f;
     private float _rotZ = 0.0f;
 
-
-    private Camera _cameraComponent;
-
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         InitializeComponents();
     }
 
     private void InitializeComponents()
     {
-        _cameraComponent = GetComponent<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
