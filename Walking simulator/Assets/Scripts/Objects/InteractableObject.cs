@@ -13,6 +13,9 @@ public class InteractableObject : MonoBehaviour
     [SerializeField]
     private bool _canBeUsedMoreThanOnce = false;
 
+    [SerializeField]
+    private bool _destroyAfterInteraction = false;
+
     private bool _wasUsedAlready = false;
 
     public void Interact(PlayerInteractablesHandler playerInteractablesHandler)
@@ -23,6 +26,11 @@ public class InteractableObject : MonoBehaviour
         _wasUsedAlready = true;
 
         Debug.Log("Player interacted with object " + gameObject.name);
+
+        if(_destroyAfterInteraction)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public bool CanBeUsed()

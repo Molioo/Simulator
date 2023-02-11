@@ -26,8 +26,24 @@ namespace Molioo.Simulator.Quests
             for (int i = 0; i < _tasks.Count; i++)
             {
                 if (_tasks[i].QuestTaskId == taskID)
+                {
                     _tasks[i].CompleteTask();
-                return true;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool TryToAddProgressToTask(string taskID, int progressToAdd)
+        {
+            for (int i = 0; i < _tasks.Count; i++)
+            {
+                if (_tasks[i].QuestTaskId == taskID)
+                {
+                    _tasks[i].AddProgressToTask(progressToAdd);
+                    return true;
+                }
             }
 
             return false;

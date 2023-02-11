@@ -11,10 +11,22 @@ namespace Molioo.Simulator.Quests
 
         public bool TaskComplete = false;
 
+        public int CurrentValue = 0;
+
+        public int MaxValue = 1;
+
         public void CompleteTask()
         {
             TaskComplete = true;
-            Debug.Log("Task " + QuestTaskId + " completed");
+        }
+
+        public void AddProgressToTask(int valueToAdd)
+        {
+            CurrentValue += valueToAdd;
+            if(CurrentValue >= MaxValue)
+            {
+                CompleteTask();
+            }
         }
     }
 }

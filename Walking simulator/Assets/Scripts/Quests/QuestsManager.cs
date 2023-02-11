@@ -17,6 +17,15 @@ namespace Molioo.Simulator.Quests
             }
         }
 
+        public void TryToAddProgressToTask(QuestTask questTask,int progress)
+        {
+            for (int i = 0; i < _currentQuests.Count; i++)
+            {
+                if (_currentQuests[i].TryToAddProgressToTask(questTask.QuestTaskId, progress))
+                    break;
+            }
+        }
+
         public void TryToCompleteTask(string questTaskID)
         {
             for (int i = 0; i < _currentQuests.Count; i++)
