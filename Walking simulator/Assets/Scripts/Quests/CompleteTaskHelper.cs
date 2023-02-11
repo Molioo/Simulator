@@ -5,7 +5,7 @@ namespace Molioo.Simulator.Quests
     public class CompleteTaskHelper : MonoBehaviour
     {
         [SerializeField]
-        private QuestTask _questTask = null;
+        private QuestTaskTemplate _questTask = null;
 
         public void CompleteTask()
         {

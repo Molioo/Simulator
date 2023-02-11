@@ -5,7 +5,7 @@ namespace Molioo.Simulator.Quests
     public class AddProgressToTaskHelper : MonoBehaviour
     {
         [SerializeField]
-        private QuestTask _questTask = null;
+        private QuestTaskTemplate _questTask = null;
 
         [SerializeField]
         private int _valueToAdd = 1;

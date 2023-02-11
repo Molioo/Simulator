@@ -654,8 +654,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae68b76154002349a146af67f0e1389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentQuests:
+  _allQuestsTemplates:
   - {fileID: 11400000, guid: 80e6bf3910ae5fc47bb20a1efb7a763c, type: 2}
+  _currentQuests: []
 --- !u!4 &672679166
 Transform:
   m_ObjectHideFlags: 0

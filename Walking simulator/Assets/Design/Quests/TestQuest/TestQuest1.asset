@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TestQuest1
   m_EditorClassIdentifier: 
   QuestID: quest_test
-  _tasks:
+  Tasks:
   - {fileID: 11400000, guid: 240b18d221c915b4f952d48d7cc811de, type: 2}
   - {fileID: 11400000, guid: 963bc07cc183f86438563a20ed90e22c, type: 2}

@@ -1,19 +1,22 @@
-using UnityEngine;
-
 namespace Molioo.Simulator.Quests
 {
-    [CreateAssetMenu(fileName = "New Quest Task", menuName = "Molioo/Quests/New Quest Task")]
-    public class QuestTask : ScriptableObject
+    [System.Serializable]
+    public class QuestTaskData
     {
         public string QuestTaskId = "";
-
-        public string QuestTaskText = "";
 
         public bool TaskComplete = false;
 
         public int CurrentValue = 0;
 
         public int MaxValue = 1;
+
+        public QuestTaskData(QuestTaskTemplate template)
+        {
+            QuestTaskId = template.QuestTaskId;
+            CurrentValue = 0;
+            MaxValue = template.MaxValue;
+        }
 
         public void CompleteTask()
         {
@@ -23,7 +26,7 @@ namespace Molioo.Simulator.Quests
         public void AddProgressToTask(int valueToAdd)
         {
             CurrentValue += valueToAdd;
-            if(CurrentValue >= MaxValue)
+            if (CurrentValue >= MaxValue)
             {
                 CompleteTask();
             }

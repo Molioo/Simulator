@@ -6,9 +6,25 @@ namespace Molioo.Simulator.Quests
     public class QuestsManager : Singleton<QuestsManager>
     {
         [SerializeField]
-        private List<Quest> _currentQuests = new List<Quest>();
+        private List<QuestTemplate> _allQuestsTemplates = new List<QuestTemplate>();
 
-        public void TryToCompleteTask(QuestTask questTask)
+        [SerializeField]
+        private List<QuestData> _currentQuests = new List<QuestData>();
+
+        public void Start()
+        {
+            //Test
+            SetQuestAsActive(_allQuestsTemplates[0]);
+        }
+
+        public void SetQuestAsActive(QuestTemplate template)
+        {
+            QuestData newQuest = new QuestData(template);
+            //Check if there isn't one activated already in current quests
+            _currentQuests.Add(newQuest);
+        }
+
+        public void TryToCompleteTask(QuestTaskTemplate questTask)
         {
             for (int i = 0; i < _currentQuests.Count; i++)
             {
@@ -17,7 +33,7 @@ namespace Molioo.Simulator.Quests
             }
         }
 
-        public void TryToAddProgressToTask(QuestTask questTask,int progress)
+        public void TryToAddProgressToTask(QuestTaskTemplate questTask,int progress)
         {
             for (int i = 0; i < _currentQuests.Count; i++)
             {
