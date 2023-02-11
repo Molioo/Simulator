@@ -1,6 +1,8 @@
+using System;
+
 namespace Molioo.Simulator.Quests
 {
-    [System.Serializable]
+    [Serializable]
     public class QuestTaskData
     {
         public string QuestTaskId = "";
@@ -11,8 +13,12 @@ namespace Molioo.Simulator.Quests
 
         public int MaxValue = 1;
 
+        //[NonSerialized]
+        public QuestTaskTemplate Template;
+
         public QuestTaskData(QuestTaskTemplate template)
         {
+            Template = template;
             QuestTaskId = template.QuestTaskId;
             CurrentValue = 0;
             MaxValue = template.MaxValue;
@@ -31,5 +37,6 @@ namespace Molioo.Simulator.Quests
                 CompleteTask();
             }
         }
+
     }
 }

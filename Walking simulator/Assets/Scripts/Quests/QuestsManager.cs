@@ -11,17 +11,41 @@ namespace Molioo.Simulator.Quests
         [SerializeField]
         private List<QuestData> _currentQuests = new List<QuestData>();
 
-        public void Start()
+        private void Start()
         {
             //Test
             SetQuestAsActive(_allQuestsTemplates[0]);
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                SaveCurrentQuests();
+            }
+            else if (Input.GetKeyDown(KeyCode.P))
+            {
+                LoadCurrentQuests();
+            }
+        }
+
+        public void SaveCurrentQuests()
+        {
+            QuestsSaveSystem.SaveQuestsProgress(_currentQuests);
+        }
+
+        public void LoadCurrentQuests()
+        {
+            _currentQuests = QuestsSaveSystem.LoadCurrentQuests();
+        }
+
         public void SetQuestAsActive(QuestTemplate template)
         {
-            QuestData newQuest = new QuestData(template);
-            //Check if there isn't one activated already in current quests
-            _currentQuests.Add(newQuest);
+            if (!IsQuestActive(template))
+            {
+                QuestData newQuest = new QuestData(template);
+                _currentQuests.Add(newQuest);
+            }
         }
 
         public void TryToCompleteTask(QuestTaskTemplate questTask)
@@ -33,7 +57,7 @@ namespace Molioo.Simulator.Quests
             }
         }
 
-        public void TryToAddProgressToTask(QuestTaskTemplate questTask,int progress)
+        public void TryToAddProgressToTask(QuestTaskTemplate questTask, int progress)
         {
             for (int i = 0; i < _currentQuests.Count; i++)
             {
@@ -50,5 +74,16 @@ namespace Molioo.Simulator.Quests
                     break;
             }
         }
+
+        private bool IsQuestActive(QuestTemplate questTemplate)
+        {
+            for (int i = 0; i < _currentQuests.Count; i++)
+            {
+                if (_currentQuests[i].QuestID == questTemplate.QuestID)
+                    return true;
+            }
+            return false;
+        }
+
     }
 }

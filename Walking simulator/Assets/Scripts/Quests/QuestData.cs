@@ -10,11 +10,15 @@ namespace Molioo.Simulator.Quests
 
         public List<QuestTaskData> Tasks = new List<QuestTaskData>();
 
+       // [NonSerialized]
+        public QuestTemplate Template;
+
         public QuestData(QuestTemplate template)
         {
+            Template = template;
             QuestID = template.QuestID;
             Tasks = new List<QuestTaskData>();
-            foreach (QuestTaskTemplate taskTemplate in template.Tasks)
+            foreach (QuestTaskTemplate taskTemplate in template.TasksTemplates)
             {
                 Tasks.Add(new QuestTaskData(taskTemplate));
             }

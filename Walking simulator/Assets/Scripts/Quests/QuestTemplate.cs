@@ -8,7 +8,7 @@ namespace Molioo.Simulator.Quests
     {
         public string QuestID = "";
 
-        public List<QuestTaskTemplate> Tasks = new List<QuestTaskTemplate>();
+        public List<QuestTaskTemplate> TasksTemplates = new List<QuestTaskTemplate>();
 
     }
 }
