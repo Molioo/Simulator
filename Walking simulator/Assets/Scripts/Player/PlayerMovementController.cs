@@ -54,8 +54,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private void SetInputValues()
     {
-        _verticalInput = Input.GetAxisRaw("Vertical");
-        _horizontalInput = Input.GetAxisRaw("Horizontal");
+        _verticalInput = Input.GetAxis("Vertical");
+        _horizontalInput = Input.GetAxis("Horizontal");
     }
 
     private void SetAnimatorValues()
