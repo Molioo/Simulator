@@ -13,6 +13,8 @@ namespace Molioo.Simulator.Photos
 
         public static List<PhotoEntry> Photos = new List<PhotoEntry>();
 
+        private static  bool _loadedPhotoGalleryFromFile = false;
+
         public static void SavePhoto(Texture2D photoTexture, string photoName)
         {
             PhotoEntry photoEntry = new PhotoEntry(photoTexture, photoName);
@@ -32,6 +34,9 @@ namespace Molioo.Simulator.Photos
 
         public static void LoadPhotoGallery()
         {
+            if (_loadedPhotoGalleryFromFile)
+                return;
+
             try
             {
                 string jsonContent = File.ReadAllText(SaveFilePath);
@@ -39,7 +44,6 @@ namespace Molioo.Simulator.Photos
                 {
                     Debug.Log("File was empty or nulled");
                     Photos = new List<PhotoEntry>();
-                    return;
                 }
                 else
                 {
@@ -55,8 +59,9 @@ namespace Molioo.Simulator.Photos
             {
                 Debug.Log("Something went wrong when reading file : " + e.Message);
                 Photos = new List<PhotoEntry>();
-                return;
             }
+
+            _loadedPhotoGalleryFromFile = true;
         }
 
         private static void LoadTextureForPhotos()
