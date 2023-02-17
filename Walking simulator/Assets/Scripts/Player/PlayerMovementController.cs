@@ -54,14 +54,14 @@ public class PlayerMovementController : MonoBehaviour
 
     private void SetInputValues()
     {
-        _verticalInput = Input.GetAxis("Vertical");
-        _horizontalInput = Input.GetAxis("Horizontal");
+        _verticalInput = Input.GetAxisRaw("Vertical");
+        _horizontalInput = Input.GetAxisRaw("Horizontal");
     }
 
     private void SetAnimatorValues()
     {
-        _playerAnimator.SetFloat("Horizontal", _horizontalInput);
-        _playerAnimator.SetFloat("Vertical", _verticalInput);
+        _playerAnimator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        _playerAnimator.SetFloat("Vertical", Input.GetAxis("Vertical"));
     }
 
     private void HandleMovement()

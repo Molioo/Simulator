@@ -1,11 +1,19 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Molioo.Simulator.Photos;
 
 public class PhotoMakerObject : MonoBehaviour
 {
     [SerializeField]
     private Camera _cameraComponent = null;
+
+    [SerializeField]
+    private Image _photoImage = null;
+
+    [SerializeField]
+    private float _waitTimeBeforePhoto = 3f;
 
     private WaitForEndOfFrame _waitForFrame;
     private WaitForSeconds _waitForSeconds;
@@ -29,7 +37,7 @@ public class PhotoMakerObject : MonoBehaviour
 
     private IEnumerator TakePhotoRoutine()
     {
-        yield return _waitForSeconds;
+        yield return new WaitForSeconds(_waitTimeBeforePhoto);
 
         SwitchCamera(true);
         GameUIManager.Instance.SwitchAllUIVisibility(false);
@@ -37,8 +45,9 @@ public class PhotoMakerObject : MonoBehaviour
         yield return _waitForFrame;
 
         TakeScreenShot();
-
+        _photoImage.ChangeAlpha(1);
         yield return _waitForSeconds;
+        _photoImage.ChangeAlpha(0);
 
         SwitchCamera(false);
         GameUIManager.Instance.SwitchAllUIVisibility(true);
@@ -59,8 +68,9 @@ public class PhotoMakerObject : MonoBehaviour
         newScreenShot.SetPixels(screenShot.GetPixels());
         newScreenShot.Apply();
 
-        //_image.sprite = Sprite.Create(newScreenShot, new Rect(0, 0, Screen.width,Screen.height), new Vector2(0, 0));
-        SaveTextureAsPNG(newScreenShot, "D://test.png");
+        _photoImage.sprite = Sprite.Create(newScreenShot, new Rect(0, 0, Screen.width,Screen.height), new Vector2(0, 0));
+        PhotoGalleryManager.SavePhoto(newScreenShot, Guid.NewGuid().ToString());
+        PhotoGalleryManager.SavePhotosGalleryData();
     }
 
     private void SaveTextureAsPNG(Texture2D _texture, string _fullPath)
