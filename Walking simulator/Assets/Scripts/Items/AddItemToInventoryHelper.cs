@@ -5,7 +5,7 @@ namespace Molioo.Simulator.Items
     public class AddItemToInventoryHelper : MonoBehaviour
     {
         [SerializeField]
-        private Item _itemToAdd = null;
+        private ItemTemplate _itemToAdd = null;
 
         [SerializeField]
         private bool _destroyOnAdd = true;

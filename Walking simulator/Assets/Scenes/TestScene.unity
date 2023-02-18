@@ -254,7 +254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraComponent: {fileID: 1486518443}
-  _photoImage: {fileID: 1375061198}
   _waitTimeBeforePhoto: 3
 --- !u!114 &363680389
 MonoBehaviour:

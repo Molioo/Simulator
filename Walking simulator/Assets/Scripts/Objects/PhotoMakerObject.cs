@@ -10,9 +10,6 @@ public class PhotoMakerObject : MonoBehaviour
     private Camera _cameraComponent = null;
 
     [SerializeField]
-    private Image _photoImage = null;
-
-    [SerializeField]
     private float _waitTimeBeforePhoto = 3f;
 
     private WaitForEndOfFrame _waitForFrame;
@@ -44,9 +41,7 @@ public class PhotoMakerObject : MonoBehaviour
         yield return _waitForFrame;
 
         TakeScreenShot();
-        _photoImage.ChangeAlpha(1);
         yield return _waitForSeconds;
-        _photoImage.ChangeAlpha(0);
 
         SwitchCamera(false);
         GameUIManager.Instance.SwitchAllUIVisibility(true);
@@ -67,7 +62,7 @@ public class PhotoMakerObject : MonoBehaviour
         newScreenShot.SetPixels(screenShot.GetPixels());
         newScreenShot.Apply();
 
-        _photoImage.sprite = Sprite.Create(newScreenShot, new Rect(0, 0, Screen.width,Screen.height), new Vector2(0, 0));
+        //_photoImage.sprite = Sprite.Create(newScreenShot, new Rect(0, 0, Screen.width,Screen.height), new Vector2(0, 0));
         PhotoGalleryManager.SavePhoto(newScreenShot, Guid.NewGuid().ToString());
         PhotoGalleryManager.SavePhotosGalleryData();
     }

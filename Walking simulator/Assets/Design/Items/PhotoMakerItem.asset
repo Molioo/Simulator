@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2599272a0854e37408434cafcd615bb0, type: 3}
+  m_Name: PhotoMakerItem
+  m_EditorClassIdentifier: 
+  ItemId: item_photoMaker
+  Name: Camera
+  Stackable: 0
+  UsesAdditionalPrefab: 1
+  ItemPrefab: {fileID: 865942824077052820, guid: 82405cda36f78a047be993c17577a07e, type: 3}

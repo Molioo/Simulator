@@ -1,10 +1,33 @@
+using Molioo.Simulator.Items;
 using UnityEngine;
 
-namespace Molioo.Simulator.Items
+public class Item : MonoBehaviour
 {
-    [CreateAssetMenu(fileName = "New Item", menuName = "Molioo/Items/New Item")]
-    public class Item : ScriptableObject
+    public int Amount = 1;
+
+    public ItemTemplate Template;
+
+    public Item(ItemTemplate template)
     {
-        public string Name;
+        Template = template;
+    }
+
+    public Item()
+    {
+    }
+
+    public virtual void UpdateItemBehaviour()
+    {
+
+    }
+
+    public virtual void OnEquipItem()
+    {
+        Debug.Log("On Equip Item " + Template.Name);
+    }
+
+    public virtual void OnUnequipItem()
+    {
+        Debug.Log("On Unequip Item " + Template.Name);
     }
 }
