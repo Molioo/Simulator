@@ -22,5 +22,10 @@ namespace Molioo.Simulator.Photos
             Width = texture.width;
             Height = texture.height;
         }
+
+        public string GetPath()
+        {
+            return Application.persistentDataPath + "/" + PhotoName + ".png";
+        }
     }
 }

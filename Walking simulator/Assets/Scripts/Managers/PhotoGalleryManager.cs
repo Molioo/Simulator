@@ -13,7 +13,7 @@ namespace Molioo.Simulator.Photos
 
         public static List<PhotoEntry> Photos = new List<PhotoEntry>();
 
-        private static  bool _loadedPhotoGalleryFromFile = false;
+        private static bool _loadedPhotoGalleryFromFile = false;
 
         public static void SavePhoto(Texture2D photoTexture, string photoName)
         {
@@ -21,6 +21,7 @@ namespace Molioo.Simulator.Photos
             Photos.Add(photoEntry);
 
             byte[] _bytes = photoTexture.EncodeToPNG();
+            File.WriteAllBytes(photoEntry.GetPath(), _bytes);
         }
 
         public static void SavePhotosGalleryData()
@@ -29,7 +30,6 @@ namespace Molioo.Simulator.Photos
             string content = JsonUtility.ToJson(new PhotoGalleryWrapper(Photos));
             file.Write(content);
             file.Close();
-            Debug.Log("Saved photo gallery");
         }
 
         public static void LoadPhotoGallery()
@@ -70,7 +70,7 @@ namespace Molioo.Simulator.Photos
             {
                 try
                 {
-                    byte[] photoBytes = File.ReadAllBytes(Application.persistentDataPath + "/" + Photos[i].PhotoName + ".png");
+                    byte[] photoBytes = File.ReadAllBytes(Photos[i].GetPath());
                     Texture2D photoTexture = new Texture2D(Photos[i].Width, Photos[i].Height);
                     photoTexture.LoadImage(photoBytes);
                     photoTexture.Apply();

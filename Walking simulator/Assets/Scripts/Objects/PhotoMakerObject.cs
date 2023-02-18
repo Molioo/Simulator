@@ -31,7 +31,6 @@ public class PhotoMakerObject : MonoBehaviour
 
     public void TakePhoto()
     {
-        Debug.Log("Taking photo");
         StartCoroutine(TakePhotoRoutine());
     }
 
@@ -71,11 +70,5 @@ public class PhotoMakerObject : MonoBehaviour
         _photoImage.sprite = Sprite.Create(newScreenShot, new Rect(0, 0, Screen.width,Screen.height), new Vector2(0, 0));
         PhotoGalleryManager.SavePhoto(newScreenShot, Guid.NewGuid().ToString());
         PhotoGalleryManager.SavePhotosGalleryData();
-    }
-
-    private void SaveTextureAsPNG(Texture2D _texture, string _fullPath)
-    {
-        byte[] _bytes = _texture.EncodeToPNG();
-        System.IO.File.WriteAllBytes(_fullPath, _bytes);
     }
 }
