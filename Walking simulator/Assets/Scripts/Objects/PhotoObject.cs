@@ -7,15 +7,13 @@ namespace Molioo.Simulator.Photos
         [SerializeField]
         private Renderer _photoRenderer = null;
 
-
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             PhotoGalleryManager.LoadPhotoGallery();
             TryToSetPhotoTexture();
         }
 
-        private void TryToSetPhotoTexture()
+        public void TryToSetPhotoTexture()
         {
             if (PhotoGalleryManager.Photos.Count == 0)
                 return;

@@ -12,6 +12,16 @@ public class PhotoMakerObject : MonoBehaviour
     [SerializeField]
     private float _waitTimeBeforePhoto = 3f;
 
+    [Header("Photo spawning")]
+    [SerializeField]
+    private bool _spawnPhoto = false;
+
+    [SerializeField]
+    private PhotoObject _photoObjectPrefab = null;
+
+    [SerializeField]
+    private Transform _photoSpawnTransform = null;
+
     private WaitForEndOfFrame _waitForFrame;
     private WaitForSeconds _waitForSeconds;
 
@@ -43,8 +53,20 @@ public class PhotoMakerObject : MonoBehaviour
         TakeScreenShot();
         yield return _waitForSeconds;
 
+        SpawnPhoto();
+
         SwitchCamera(false);
         GameUIManager.Instance.SwitchAllUIVisibility(true);
+    }
+
+    private void SpawnPhoto()
+    {
+        if(_spawnPhoto)
+        {
+            PhotoObject photo = Instantiate(_photoObjectPrefab, null);
+            photo.transform.SetPositionAndRotation(_photoSpawnTransform.position, _photoSpawnTransform.rotation);
+            photo.TryToSetPhotoTexture();
+        }
     }
 
     private void SwitchCamera(bool enablePhotoCamera)
