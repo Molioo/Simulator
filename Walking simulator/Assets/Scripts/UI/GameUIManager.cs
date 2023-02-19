@@ -16,7 +16,7 @@ public class GameUIManager : Singleton<GameUIManager>
 
     private void SetInteractionText()
     {
-        _interactionText.text = PlayerInteractablesHandler.CurrentlyFocusedInteractable!= null ? PlayerInteractablesHandler.CurrentlyFocusedInteractable.InteractionText : "";
+        _interactionText.text = PlayerInteractablesHandler.GetInteractionText();
     }
 
     public void SwitchAllUIVisibility(bool visible)

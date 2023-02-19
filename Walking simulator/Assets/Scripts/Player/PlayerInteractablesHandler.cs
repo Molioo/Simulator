@@ -18,6 +18,15 @@ public class PlayerInteractablesHandler : MonoBehaviour
         HandleInteractInput();
     }
 
+    public static string GetInteractionText()
+    {
+        if (CurrentlyFocusedInteractable!=null)
+        {
+            return CurrentlyFocusedInteractable.IsAnyOptionUsable() ? CurrentlyFocusedInteractable.GetInteractionsText() : "";
+        }
+        return "";
+    }
+
     private void RaycastForInteractableObjects()
     {
         CurrentlyFocusedInteractable = null;
@@ -27,7 +36,7 @@ public class PlayerInteractablesHandler : MonoBehaviour
         {
             if (hit.collider.gameObject.TryGetComponent(out InteractableObject interactable))
             {
-                if (!interactable.CanBeUsed())
+                if (!interactable.IsAnyOptionUsable())
                     return;
 
                 _distanceToCurrentObject = Vector3.Distance(transform.position, hit.collider.transform.position);
@@ -41,11 +50,21 @@ public class PlayerInteractablesHandler : MonoBehaviour
 
     private void HandleInteractInput()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (CurrentlyFocusedInteractable == null)
+            return;
+
+        if (!CurrentlyFocusedInteractable.IsAnyOptionUsable())
+            return;
+
+        for (int i = 0; i < CurrentlyFocusedInteractable.Interactions.Count; i++)
         {
-            if (CurrentlyFocusedInteractable != null && CurrentlyFocusedInteractable.CanBeUsed())
+            if (!CurrentlyFocusedInteractable.Interactions[i].CanBeUsed())
+                continue;
+
+            if (Input.GetKeyDown(CurrentlyFocusedInteractable.Interactions[i].InteractionKeyCode))
             {
-                CurrentlyFocusedInteractable.Interact(this);
+                CurrentlyFocusedInteractable.Interact(CurrentlyFocusedInteractable.Interactions[i]);
+                break;
             }
         }
     }

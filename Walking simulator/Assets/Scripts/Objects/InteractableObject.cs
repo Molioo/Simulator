@@ -1,43 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class InteractableObject : MonoBehaviour
 {
-    public string InteractionText;
-
     public float InteractionDistance = 10;
 
-    [SerializeField]
-    private UnityEvent _onPlayerInteract = null;
-
-    [SerializeField]
-    private bool _canBeUsedMoreThanOnce = false;
-
-    [SerializeField]
-    private bool _destroyAfterInteraction = false;
-
-    private bool _wasUsedAlready = false;
-
-    public void Interact(PlayerInteractablesHandler playerInteractablesHandler)
+    public List<InteractionOption> Interactions
     {
-        if (_onPlayerInteract != null)
-            _onPlayerInteract.Invoke();
+        get { return _interactions; }
+    }
 
-        _wasUsedAlready = true;
+    [SerializeField]
+    private List<InteractionOption> _interactions = new List<InteractionOption>();
 
-        Debug.Log("Player interacted with object " + gameObject.name);
-
-        if(_destroyAfterInteraction)
+    public void Interact(InteractionOption interaction)
+    {
+        if(interaction.CanBeUsed())
         {
-            Destroy(gameObject);
+            interaction.Use();
+            if(interaction.DestroyAfterInteraction)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
-    public bool CanBeUsed()
+    public bool IsAnyOptionUsable()
     {
-        if (_canBeUsedMoreThanOnce)
-            return true;
-        else
-            return !_wasUsedAlready;
+        for (int i = 0; i < _interactions.Count; i++)
+        {
+            if (_interactions[i].CanBeUsed())
+                return true;
+        }
+        return false;
     }
+
+    public string GetInteractionsText()
+    {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < _interactions.Count; i++)
+        {
+            if (_interactions[i].CanBeUsed())
+            {
+                builder.Append("[" + _interactions[i].InteractionKeyCode.ToString() + "] " + _interactions[i].InteractionText + Environment.NewLine);
+            }
+        }
+        return builder.ToString();
+    }
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < _interactions.Count; i++)
+        {
+            _interactions[i].OnValidate();
+        }
+    }
+
 }
