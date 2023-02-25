@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1c73bd669fa7f44b0f3eb38ce0d7e5, type: 3}
-  m_Name: TestQuest1
+  m_Script: {fileID: 11500000, guid: 559bcba6b5d132847a46abaae05c02fa, type: 3}
+  m_Name: TestQuest2Task2
   m_EditorClassIdentifier: 
-  QuestID: quest_test
-  TasksTemplates:
-  - {fileID: 11400000, guid: 240b18d221c915b4f952d48d7cc811de, type: 2}
-  - {fileID: 11400000, guid: 963bc07cc183f86438563a20ed90e22c, type: 2}
+  QuestTaskId: qTask_Test22
+  QuestTaskText: 
+  TaskComplete: 0
+  MaxValue: 1

@@ -8,6 +8,8 @@ namespace Molioo.Simulator.Quests
     {
         public string QuestID = "";
 
+        public string QuestDescription = "";
+
         public List<QuestTaskTemplate> TasksTemplates = new List<QuestTaskTemplate>();
 
     }

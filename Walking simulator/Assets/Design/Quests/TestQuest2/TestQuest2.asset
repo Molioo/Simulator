@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1c73bd669fa7f44b0f3eb38ce0d7e5, type: 3}
+  m_Name: TestQuest2
+  m_EditorClassIdentifier: 
+  QuestID: quest_testQuest2
+  QuestDescription: Fix this another something
+  TasksTemplates:
+  - {fileID: 11400000, guid: 754176c286eb25c4a9fe1e44aa9572e6, type: 2}
+  - {fileID: 11400000, guid: 5fbe0a9603391c748befe1e3914e87b0, type: 2}
+  - {fileID: 11400000, guid: 4f9177144c6e3ad49b646deadf6eeacf, type: 2}

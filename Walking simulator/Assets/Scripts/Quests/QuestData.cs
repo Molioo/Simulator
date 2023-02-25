@@ -8,6 +8,8 @@ namespace Molioo.Simulator.Quests
     {
         public string QuestID;
 
+        public EQuestStatus QuestStatus;
+
         public List<QuestTaskData> Tasks = new List<QuestTaskData>();
 
        // [NonSerialized]

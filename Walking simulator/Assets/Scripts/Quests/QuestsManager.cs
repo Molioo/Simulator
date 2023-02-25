@@ -15,6 +15,7 @@ namespace Molioo.Simulator.Quests
         {
             //Test
             SetQuestAsActive(_allQuestsTemplates[0]);
+            AddQuestAsReadyToStart(_allQuestsTemplates[1]);
         }
 
         private void Update()
@@ -41,10 +42,36 @@ namespace Molioo.Simulator.Quests
 
         public void SetQuestAsActive(QuestTemplate template)
         {
-            if (!IsQuestActive(template))
+            if (!IsQuestInList(template, _currentQuests))
             {
                 QuestData newQuest = new QuestData(template);
+                newQuest.QuestStatus = EQuestStatus.InProgress;
                 _currentQuests.Add(newQuest);
+            }
+            else
+            {
+                StartQuest(template);
+            }
+        }
+
+        public void AddQuestAsReadyToStart(QuestTemplate template)
+        {
+            if (!IsQuestInList(template, _currentQuests))
+            {
+                QuestData newQuest = new QuestData(template);
+                newQuest.QuestStatus = EQuestStatus.ReadyToStart;
+                _currentQuests.Add(newQuest);
+            }
+        }
+
+        public void StartQuest(QuestTemplate questTemplate)
+        {
+            for (int i = 0; i < _currentQuests.Count; i++)
+            {
+                if (_currentQuests[i].QuestID == questTemplate.QuestID)
+                {
+                    _currentQuests[i].QuestStatus = EQuestStatus.InProgress;
+                }
             }
         }
 
@@ -75,11 +102,22 @@ namespace Molioo.Simulator.Quests
             }
         }
 
-        private bool IsQuestActive(QuestTemplate questTemplate)
+        public List<QuestData> GetQuestsWithStatus(EQuestStatus status)
         {
+            List<QuestData> quests = new List<QuestData>();
             for (int i = 0; i < _currentQuests.Count; i++)
             {
-                if (_currentQuests[i].QuestID == questTemplate.QuestID)
+                if (_currentQuests[i].QuestStatus == status)
+                    quests.Add(_currentQuests[i]);
+            }
+            return quests;
+        }
+
+        private bool IsQuestInList(QuestTemplate questTemplate, List<QuestData> questsList)
+        {
+            for (int i = 0; i < questsList.Count; i++)
+            {
+                if (questsList[i].QuestID == questTemplate.QuestID)
                     return true;
             }
             return false;

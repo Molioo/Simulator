@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7083941551848079693}
   - component: {fileID: 7083941551848079694}
   - component: {fileID: 7083941551848079695}
+  - component: {fileID: 6003901066924112387}
+  - component: {fileID: 5087969100940752520}
+  - component: {fileID: 4267273841753675650}
   m_Layer: 0
   m_Name: PhotoMakerObject
   m_TagString: Untagged
@@ -135,6 +138,25 @@ MonoBehaviour:
           m_CallState: 2
     CanBeUsedMoreThanOnce: 1
     DestroyAfterInteraction: 0
+  - InteractionText: Move Photo Maker
+    InteractionKeyCode: 102
+    OnPlayerInteract:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4267273841753675650}
+          m_TargetAssemblyTypeName: MoveObjectHelper, Assembly-CSharp
+          m_MethodName: StartMovingObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    CanBeUsedMoreThanOnce: 1
+    DestroyAfterInteraction: 0
 --- !u!114 &7083941551848079695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +174,51 @@ MonoBehaviour:
   _spawnPhoto: 1
   _photoObjectPrefab: {fileID: 8586214331540327883, guid: 2bef513bfd12fd94194f64d41ee26fe6, type: 3}
   _photoSpawnTransform: {fileID: 7083941552053783474}
+--- !u!114 &6003901066924112387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083941551848079688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684ec553cbd66d64cb4c7f4a60e906a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectRigidbody: {fileID: 5087969100940752520}
+  _objectRenderer: {fileID: 0}
+  _canBePlacedMaterial: {fileID: 0}
+  _cantBePlacedMaterial: {fileID: 0}
+--- !u!54 &5087969100940752520
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083941551848079688}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4267273841753675650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083941551848079688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ff0ffb66724b74f8af7131455faca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movableObject: {fileID: 6003901066924112387}
 --- !u!1 &7083941552053783475
 GameObject:
   m_ObjectHideFlags: 0
