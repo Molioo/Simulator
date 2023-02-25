@@ -29,6 +29,7 @@ public class InteractionOption
         if(OnPlayerInteract!=null)
         {
             OnPlayerInteract.Invoke();
+            _wasUsedAlready = true;
         }
     }
 

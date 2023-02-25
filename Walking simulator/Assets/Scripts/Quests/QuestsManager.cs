@@ -15,7 +15,6 @@ namespace Molioo.Simulator.Quests
         {
             //Test
             SetQuestAsActive(_allQuestsTemplates[0]);
-            AddQuestAsReadyToStart(_allQuestsTemplates[1]);
         }
 
         private void Update()

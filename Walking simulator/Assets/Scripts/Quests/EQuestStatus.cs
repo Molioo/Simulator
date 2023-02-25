@@ -1,6 +1,9 @@
-public enum EQuestStatus
+namespace Molioo.Simulator.Quests
 {
-    ReadyToStart,
-    InProgress,
-    Completed
+    public enum EQuestStatus
+    {
+        ReadyToStart,
+        InProgress,
+        Completed
+    }
 }
