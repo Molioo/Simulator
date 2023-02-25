@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2599272a0854e37408434cafcd615bb0, type: 3}
+  m_Name: HammerTemplate
+  m_EditorClassIdentifier: 
+  ItemId: item_hammer
+  Name: Hammer
+  Stackable: 0
+  UsesAdditionalPrefab: 1
+  ItemPrefab: {fileID: 4795870361652762213, guid: a0c6b62009c0fda4cb211bac2ba517c8, type: 3}
+  ShouldBeSpawnedAsBoneChild: 1
+  BoneParent: 18
+  LocalPositionInBone: {x: -0.091, y: -0.014, z: -0.06}
+  LocalRotationInBone: {x: 351.098, y: 135.044, z: 353.08}

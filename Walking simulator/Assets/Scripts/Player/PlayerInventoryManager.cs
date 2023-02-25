@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerInventoryManager : MonoBehaviour
 {
     [SerializeField]
+    private Animator _playerAnimator = null;
+
+    [SerializeField]
     private List<Item> _playerCurrentItems = new List<Item>();
 
     [SerializeField]
@@ -17,8 +20,20 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         if (itemTemplate.UsesAdditionalPrefab)
         {
-            Item item = Instantiate(itemTemplate.ItemPrefab, _itemsTransform);
-            _playerCurrentItems.Add(item);
+            if (itemTemplate.ShouldBeSpawnedAsBoneChild)
+            {
+                Transform boneTransform = _playerAnimator.GetBoneTransform(itemTemplate.BoneParent);
+                Item item = Instantiate(itemTemplate.ItemPrefab, boneTransform);
+                item.transform.SetLocalPositionAndRotation(itemTemplate.LocalPositionInBone, Quaternion.Euler(itemTemplate.LocalRotationInBone));
+                _playerCurrentItems.Add(item);
+                item.gameObject.SetActive(false);
+            }
+            else
+            {
+                Item item = Instantiate(itemTemplate.ItemPrefab, _itemsTransform);
+                _playerCurrentItems.Add(item);
+                item.gameObject.SetActive(false);
+            }
         }
         else
         {

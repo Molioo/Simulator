@@ -3506,6 +3506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619159de197ce9d48aeb106a40a202fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 7074179148558506260}
   _playerCurrentItems: []
   _itemsTransform: {fileID: 6150994102687744791}
 --- !u!114 &2186383119379625176
@@ -3520,6 +3521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95668263edf2a04ea1adac9fb8725c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraTransform: {fileID: 0}
 --- !u!1 &5608660393090621577
 GameObject:
   m_ObjectHideFlags: 0
