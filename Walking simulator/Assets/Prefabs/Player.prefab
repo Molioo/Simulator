@@ -3494,6 +3494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventoryManager: {fileID: 7019935196187575969}
   ObjectMovingController: {fileID: 2186383119379625176}
+  PlayerAnimator: {fileID: 7074179148558506260}
 --- !u!114 &7019935196187575969
 MonoBehaviour:
   m_ObjectHideFlags: 0
