@@ -4,6 +4,9 @@ using UnityEngine;
 public class GameUIManager : Singleton<GameUIManager>
 {
     [SerializeField]
+    private ReactionTextController _reactionTextController;
+
+    [SerializeField]
     private TextMeshProUGUI _interactionText = null;
 
     [SerializeField]
@@ -22,6 +25,11 @@ public class GameUIManager : Singleton<GameUIManager>
     public void SwitchAllUIVisibility(bool visible)
     {
         _canvasGroup.alpha = visible ? 1 : 0;
+    }
+    
+    public void ShowReactionText(string text)
+    {
+        _reactionTextController.SetReactionText(text);
     }
 
   
