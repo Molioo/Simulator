@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerInventoryManager : MonoBehaviour
 {
     [SerializeField]
+    private Item _defaultItemPrefab;
+
+    [SerializeField]
     private Animator _playerAnimator = null;
 
     [SerializeField]
@@ -16,29 +19,63 @@ public class PlayerInventoryManager : MonoBehaviour
 
     private Item _currentItem = null;
 
-    public void AddItem(ItemTemplate itemTemplate)
+    public void AddItem(ItemTemplate itemTemplate, int amountToAdd = 1)
     {
-        if (itemTemplate.UsesAdditionalPrefab)
+        if (itemTemplate.Stackable)
         {
-            if (itemTemplate.ShouldBeSpawnedAsBoneChild)
-            {
-                Transform boneTransform = _playerAnimator.GetBoneTransform(itemTemplate.BoneParent);
-                Item item = Instantiate(itemTemplate.ItemPrefab, boneTransform);
-                item.transform.SetLocalPositionAndRotation(itemTemplate.LocalPositionInBone, Quaternion.Euler(itemTemplate.LocalRotationInBone));
-                _playerCurrentItems.Add(item);
-                item.gameObject.SetActive(false);
-            }
-            else
-            {
-                Item item = Instantiate(itemTemplate.ItemPrefab, _itemsTransform);
-                _playerCurrentItems.Add(item);
-                item.gameObject.SetActive(false);
-            }
+            TryToAddStackableItem(itemTemplate, amountToAdd);
         }
         else
         {
-            Item item = new Item(itemTemplate);
-            _playerCurrentItems.Add(item);
+            TryToAddNormalItem(itemTemplate);
+        }
+    }
+
+    private void TryToAddNormalItem(ItemTemplate template)
+    {
+        if (!HasItem(template))
+        {
+            Item normalItem = SpawnItem(template);
+            normalItem.Amount = 1;
+            normalItem.gameObject.SetActive(false);
+            _playerCurrentItems.Add(normalItem);
+        }
+    }
+
+    private void TryToAddStackableItem(ItemTemplate template, int amountToAdd)
+    {
+        for (int i = 0; i < _playerCurrentItems.Count; i++)
+        {
+            if (_playerCurrentItems[i].Template.ItemId == template.ItemId)
+            {
+                _playerCurrentItems[i].AddAmount(amountToAdd);
+                return;
+            }
+        }
+
+        //Didn't find any in currentItems
+        Item stackableItem = SpawnItem(template);
+        stackableItem.Amount = amountToAdd;
+        _playerCurrentItems.Add(stackableItem);
+    }
+
+    private Item SpawnItem(ItemTemplate itemTemplate)
+    {
+        if (itemTemplate.ShouldBeSpawnedAsBoneChild)
+        {
+            Transform boneTransform = _playerAnimator.GetBoneTransform(itemTemplate.BoneParent);
+            Item item = Instantiate(itemTemplate.ItemPrefab != null ? itemTemplate.ItemPrefab : _defaultItemPrefab, boneTransform);
+            item.Template = itemTemplate;
+            item.transform.SetLocalPositionAndRotation(itemTemplate.LocalPositionInBone, Quaternion.Euler(itemTemplate.LocalRotationInBone));
+            item.gameObject.name = itemTemplate.Name;
+            return item;
+        }
+        else
+        {
+            Item item = Instantiate(itemTemplate.ItemPrefab != null ? itemTemplate.ItemPrefab : _defaultItemPrefab, _itemsTransform);
+            item.Template = itemTemplate;
+            item.gameObject.name = itemTemplate.Name;
+            return item;
         }
     }
 
@@ -46,7 +83,7 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         for (int i = 0; i < _playerCurrentItems.Count; i++)
         {
-            if (_playerCurrentItems[i].Template == itemTemplate)
+            if (_playerCurrentItems[i].Template.ItemId == itemTemplate.ItemId)
             {
                 _playerCurrentItems.Remove(_playerCurrentItems[i]);
                 return;
@@ -60,9 +97,22 @@ public class PlayerInventoryManager : MonoBehaviour
         UpdateCurrentItem();
     }
 
+    private bool HasItem(ItemTemplate template)
+    {
+        for (int i = 0; i < _playerCurrentItems.Count; i++)
+        {
+            if (_playerCurrentItems[i].Template.ItemId == template.ItemId)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private void UpdateCurrentItem()
     {
-        if(_currentItem!=null)
+        if (_currentItem != null)
         {
             _currentItem.UpdateItemBehaviour();
         }
@@ -86,7 +136,7 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (_playerCurrentItems.Count>0)
+            if (_playerCurrentItems.Count > 0)
             {
                 SetCurrentItem(_playerCurrentItems[0]);
             }

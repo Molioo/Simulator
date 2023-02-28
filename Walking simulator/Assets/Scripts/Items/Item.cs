@@ -14,6 +14,17 @@ public class Item : MonoBehaviour
 
     public Item()
     {
+
+    }
+
+    public void AddAmount(int amountToAdd)
+    {
+        Amount += amountToAdd;
+    }
+
+    public void RemoveAmount(int amountToRemove)
+    {
+        Amount = Mathf.Max(0,Amount- amountToRemove);
     }
 
     public virtual void UpdateItemBehaviour()

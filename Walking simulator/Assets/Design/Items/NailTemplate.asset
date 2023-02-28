@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2599272a0854e37408434cafcd615bb0, type: 3}
-  m_Name: HammerTemplate
+  m_Name: NailTemplate
   m_EditorClassIdentifier: 
-  ItemId: item_hammer
-  Name: Hammer
-  Stackable: 0
-  UsesAdditionalPrefab: 1
-  ItemPrefab: {fileID: 4795870361652762213, guid: a0c6b62009c0fda4cb211bac2ba517c8, type: 3}
-  ShouldBeSpawnedAsBoneChild: 1
+  ItemId: item_nail
+  Name: Nail
+  Stackable: 1
+  ItemPrefab: {fileID: 0}
+  ShouldBeSpawnedAsBoneChild: 0
   BoneParent: 18
   LocalPositionInBone: {x: -0.134, y: -0.08, z: -0.015}
   LocalRotationInBone: {x: 368.757, y: -12.37, z: 367.103}

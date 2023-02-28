@@ -3507,6 +3507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619159de197ce9d48aeb106a40a202fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultItemPrefab: {fileID: 1087712967454507235, guid: 7627aa0946bfd7344831b5488e2dbaca, type: 3}
   _playerAnimator: {fileID: 7074179148558506260}
   _playerCurrentItems: []
   _itemsTransform: {fileID: 6150994102687744791}

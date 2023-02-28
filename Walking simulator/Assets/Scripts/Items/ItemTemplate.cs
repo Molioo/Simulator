@@ -11,8 +11,6 @@ namespace Molioo.Simulator.Items
 
         public bool Stackable;
 
-        public bool UsesAdditionalPrefab = false;
-
         public Item ItemPrefab = null;
 
         public bool ShouldBeSpawnedAsBoneChild;
