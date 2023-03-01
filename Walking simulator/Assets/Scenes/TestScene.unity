@@ -490,6 +490,9 @@ GameObject:
   - component: {fileID: 542690070}
   - component: {fileID: 542690069}
   - component: {fileID: 542690075}
+  - component: {fileID: 542690078}
+  - component: {fileID: 542690077}
+  - component: {fileID: 542690076}
   m_Layer: 0
   m_Name: QuestCube
   m_TagString: Untagged
@@ -541,8 +544,41 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 542690078}
+          m_TargetAssemblyTypeName: InvokeReactionHelper, Assembly-CSharp
+          m_MethodName: TryInvokeReaction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     Requirements:
     - {fileID: 542690075}
+    CanBeUsedMoreThanOnce: 0
+    DestroyAfterInteraction: 0
+  - InteractionText: Check
+    InteractionKeyCode: 101
+    OnPlayerInteract:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 542690076}
+          m_TargetAssemblyTypeName: InvokeReactionHelper, Assembly-CSharp
+          m_MethodName: TryInvokeReaction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    Requirements:
+    - {fileID: 542690077}
     CanBeUsedMoreThanOnce: 0
     DestroyAfterInteraction: 0
 --- !u!65 &542690071
@@ -637,6 +673,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemToHave: {fileID: 11400000, guid: b36a407f8fe31914fac646ada0d8402e, type: 2}
   _amountToHave: 3
+--- !u!114 &542690076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542690068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6aced5f5f1f784e9bd108691a91f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reaction:
+    _reactionText: I guess I need 3 nails to fix this
+    _reactionAudioClip: {fileID: 0}
+--- !u!114 &542690077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542690068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99311d22ceaf60c47b74c6f58f4b643d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemToHave: {fileID: 11400000, guid: b36a407f8fe31914fac646ada0d8402e, type: 2}
+  _amountToHave: 3
+--- !u!114 &542690078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542690068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6aced5f5f1f784e9bd108691a91f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reaction:
+    _reactionText: 'Finally fixed this '
+    _reactionAudioClip: {fileID: 0}
 --- !u!1 &672679164
 GameObject:
   m_ObjectHideFlags: 0
