@@ -97,7 +97,7 @@ public class PlayerInventoryManager : MonoBehaviour
         UpdateCurrentItem();
     }
 
-    private bool HasItem(ItemTemplate template)
+    public bool HasItem(ItemTemplate template)
     {
         for (int i = 0; i < _playerCurrentItems.Count; i++)
         {
@@ -108,6 +108,22 @@ public class PlayerInventoryManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public bool HasGivenAmountOfItem(ItemTemplate template, int amount)
+    {
+        for (int i = 0; i < _playerCurrentItems.Count; i++)
+        {
+            if (_playerCurrentItems[i].Template.ItemId == template.ItemId)
+            {
+                if (_playerCurrentItems[i].Amount >= amount)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+
     }
 
     private void UpdateCurrentItem()

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,8 @@ public class InteractionOption
 
     public UnityEvent OnPlayerInteract = null;
 
+    public List<Requirement> Requirements = new List<Requirement>();
+
     public bool CanBeUsedMoreThanOnce = true;
 
     public bool DestroyAfterInteraction = false;
@@ -18,6 +21,9 @@ public class InteractionOption
 
     public bool CanBeUsed()
     {
+        if (!HasMetAllRequirements())
+            return false;
+
         if (CanBeUsedMoreThanOnce)
             return true;
         else
@@ -39,4 +45,14 @@ public class InteractionOption
             InteractionKeyCode = KeyCode.E;
     }
   
+    private bool HasMetAllRequirements()
+    {
+        for (int i = 0; i < Requirements.Count; i++)
+        {
+            if (!Requirements[i].IsRequirementMet())
+                return false;
+        }
+
+        return true;
+    }
 }
