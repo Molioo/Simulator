@@ -79,13 +79,18 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-    public void RemoveItem(ItemTemplate itemTemplate)
+    public void RemoveItem(ItemTemplate itemTemplate, int amountToRemove)
     {
         for (int i = 0; i < _playerCurrentItems.Count; i++)
         {
             if (_playerCurrentItems[i].Template.ItemId == itemTemplate.ItemId)
             {
-                _playerCurrentItems.Remove(_playerCurrentItems[i]);
+                _playerCurrentItems[i].RemoveAmount(amountToRemove);
+                if (_playerCurrentItems[i].Amount <= 0)
+                {
+                    Destroy(_playerCurrentItems[i].gameObject);
+                    _playerCurrentItems.Remove(_playerCurrentItems[i]);
+                }
                 return;
             }
         }
@@ -150,6 +155,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     private void CheckForItemSelectInput()
     {
+        //This is shitty btw, only for tests
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (_playerCurrentItems.Count > 0)

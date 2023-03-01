@@ -120,8 +120,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    Requirements: []
     CanBeUsedMoreThanOnce: 0
-    DestroyAfterInteraction: 0
+    DestroyAfterInteraction: 1
 --- !u!114 &4612303422621612614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemToAdd: {fileID: 11400000, guid: b36a407f8fe31914fac646ada0d8402e, type: 2}
   _amountToAdd: 1
-  _destroyOnAdd: 1
 --- !u!54 &4612303422621612613
 Rigidbody:
   m_ObjectHideFlags: 0

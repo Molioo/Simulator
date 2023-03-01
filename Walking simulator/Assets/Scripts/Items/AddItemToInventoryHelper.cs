@@ -10,16 +10,10 @@ namespace Molioo.Simulator.Items
         [SerializeField]
         private int _amountToAdd = 1;
 
-        [SerializeField]
-        private bool _destroyOnAdd = true;
-
         public void AddItemToInventory()
         {
             if (_itemToAdd != null)
                 PlayerSystemsManager.Instance.InventoryManager.AddItem(_itemToAdd, _amountToAdd);
-
-            if (_destroyOnAdd)
-                Destroy(gameObject);
         }
 
     }
