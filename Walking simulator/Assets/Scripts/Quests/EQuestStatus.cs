@@ -2,7 +2,8 @@ namespace Molioo.Simulator.Quests
 {
     public enum EQuestStatus
     {
-        ReadyToStart,
+        NotStarted,
+        Discovered,
         InProgress,
         Completed
     }

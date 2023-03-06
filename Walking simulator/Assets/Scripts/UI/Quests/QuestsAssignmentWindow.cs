@@ -31,7 +31,7 @@ public class QuestsAssignmentWindow : MonoBehaviour
 
     public void OnClickQuestEntry(UiQuestEntry questEntry)
     {
-        if(questEntry.QuestData.QuestStatus == EQuestStatus.ReadyToStart)
+        if(questEntry.QuestData.QuestStatus == EQuestStatus.Discovered)
         {
             QuestsManager.Instance.SetQuestAsActive(questEntry.QuestData.Template);
             Refresh();
@@ -41,7 +41,7 @@ public class QuestsAssignmentWindow : MonoBehaviour
 
     private void CreateAvailableQuests()
     {
-        foreach (QuestData quest in QuestsManager.Instance.GetQuestsWithStatus(EQuestStatus.ReadyToStart))
+        foreach (QuestData quest in QuestsManager.Instance.GetQuestsWithStatus(EQuestStatus.Discovered))
         {
             UiQuestEntry questEntry = Instantiate(_questEntryPrefab, _availableQuestsRect);
             questEntry.SetQuest(quest, OnClickQuestEntry);

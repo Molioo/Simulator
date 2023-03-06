@@ -58,7 +58,7 @@ namespace Molioo.Simulator.Quests
             if (!IsQuestInList(template, _currentQuests))
             {
                 QuestData newQuest = new QuestData(template);
-                newQuest.QuestStatus = EQuestStatus.ReadyToStart;
+                newQuest.QuestStatus = EQuestStatus.Discovered;
                 _currentQuests.Add(newQuest);
             }
         }
@@ -72,6 +72,18 @@ namespace Molioo.Simulator.Quests
                     _currentQuests[i].QuestStatus = EQuestStatus.InProgress;
                 }
             }
+        }
+
+        public bool HasQuestWithThatStatus(QuestTemplate questTemplate,EQuestStatus questStatus)
+        {
+            for (int i = 0; i < _currentQuests.Count; i++)
+            {
+                if (_currentQuests[i].QuestID == questTemplate.QuestID)
+                {
+                    return _currentQuests[i].QuestStatus == questStatus;
+                }
+            }
+            return false;
         }
 
         public void TryToCompleteTask(QuestTaskTemplate questTask)

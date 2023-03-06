@@ -12,7 +12,7 @@ namespace Molioo.Simulator.Quests
 
         public void TryToAddQuest()
         {
-            if(_questStatusToSet == EQuestStatus.ReadyToStart)
+            if(_questStatusToSet == EQuestStatus.Discovered)
             {
                 QuestsManager.Instance.AddQuestAsReadyToStart(_questToAdd);
             }

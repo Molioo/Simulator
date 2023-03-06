@@ -493,6 +493,8 @@ GameObject:
   - component: {fileID: 542690078}
   - component: {fileID: 542690077}
   - component: {fileID: 542690076}
+  - component: {fileID: 542690079}
+  - component: {fileID: 542690080}
   m_Layer: 0
   m_Name: QuestCube
   m_TagString: Untagged
@@ -556,8 +558,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 542690079}
+          m_TargetAssemblyTypeName: RemoveItemFromInventoryHelper, Assembly-CSharp
+          m_MethodName: RemoveItemFromInventory
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     Requirements:
     - {fileID: 542690075}
+    - {fileID: 542690080}
     CanBeUsedMoreThanOnce: 0
     DestroyAfterInteraction: 0
   - InteractionText: Check
@@ -579,6 +594,7 @@ MonoBehaviour:
           m_CallState: 2
     Requirements:
     - {fileID: 542690077}
+    - {fileID: 542690080}
     CanBeUsedMoreThanOnce: 0
     DestroyAfterInteraction: 0
 --- !u!65 &542690071
@@ -717,6 +733,34 @@ MonoBehaviour:
   _reaction:
     _reactionText: 'Finally fixed this '
     _reactionAudioClip: {fileID: 0}
+--- !u!114 &542690079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542690068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ab657355a40b547a3a7641e63928ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemToAdd: {fileID: 11400000, guid: b36a407f8fe31914fac646ada0d8402e, type: 2}
+  _amountToRemove: 3
+--- !u!114 &542690080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542690068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995ae7e305f009f4fb69e2c91410b7f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _questToCheck: {fileID: 11400000, guid: 80e6bf3910ae5fc47bb20a1efb7a763c, type: 2}
+  _possibleStatuses: 02000000
 --- !u!1 &672679164
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,7 +958,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemToAdd: {fileID: 11400000, guid: 5907df073ca32b54692a0df1bfbd09a4, type: 2}
   _amountToAdd: 1
-  _destroyOnAdd: 1
 --- !u!114 &730236989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,7 +1191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemToAdd: {fileID: 11400000, guid: 9b5fab20c9f5c4048b6120d5f0da47f0, type: 2}
   _amountToAdd: 1
-  _destroyOnAdd: 1
 --- !u!114 &851958338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1449,7 +1491,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemToAdd: {fileID: 11400000, guid: b36a407f8fe31914fac646ada0d8402e, type: 2}
   _amountToAdd: 1
-  _destroyOnAdd: 1
 --- !u!114 &946468272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1484,7 +1525,7 @@ MonoBehaviour:
           m_CallState: 2
     Requirements: []
     CanBeUsedMoreThanOnce: 0
-    DestroyAfterInteraction: 0
+    DestroyAfterInteraction: 1
 --- !u!23 &946468273
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1630,7 +1671,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemToAdd: {fileID: 11400000, guid: b36a407f8fe31914fac646ada0d8402e, type: 2}
   _amountToAdd: 1
-  _destroyOnAdd: 1
 --- !u!114 &968467503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1665,7 +1705,7 @@ MonoBehaviour:
           m_CallState: 2
     Requirements: []
     CanBeUsedMoreThanOnce: 0
-    DestroyAfterInteraction: 0
+    DestroyAfterInteraction: 1
 --- !u!23 &968467504
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2815,7 +2855,7 @@ MonoBehaviour:
           m_CallState: 2
     Requirements: []
     CanBeUsedMoreThanOnce: 0
-    DestroyAfterInteraction: 0
+    DestroyAfterInteraction: 1
 --- !u!23 &1777123308
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2895,7 +2935,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemToAdd: {fileID: 11400000, guid: b36a407f8fe31914fac646ada0d8402e, type: 2}
   _amountToAdd: 1
-  _destroyOnAdd: 1
 --- !u!1 &1839517286
 GameObject:
   m_ObjectHideFlags: 0
