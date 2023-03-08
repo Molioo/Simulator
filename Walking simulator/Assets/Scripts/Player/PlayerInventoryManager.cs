@@ -19,6 +19,14 @@ public class PlayerInventoryManager : MonoBehaviour
 
     private Item _currentItem = null;
 
+    public Item CurrentItem { get { return _currentItem; }}
+
+    private void Update()
+    {
+        CheckForItemSelectInput();
+        UpdateCurrentItem();
+    }
+
     public void AddItem(ItemTemplate itemTemplate, int amountToAdd = 1)
     {
         if (itemTemplate.Stackable)
@@ -96,12 +104,6 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        CheckForItemSelectInput();
-        UpdateCurrentItem();
-    }
-
     public bool HasItem(ItemTemplate template)
     {
         for (int i = 0; i < _playerCurrentItems.Count; i++)
@@ -129,6 +131,26 @@ public class PlayerInventoryManager : MonoBehaviour
         }
         return false;
 
+    }
+
+    public bool CanUseItem(ItemTemplate itemTemplate)
+    {
+        for (int i = 0; i < _playerCurrentItems.Count; i++)
+        {
+            if (_playerCurrentItems[i].Template.ItemId == itemTemplate.ItemId)
+            {
+                return _playerCurrentItems[i].CanBeUsed();
+            }
+        }
+        return false;
+    }
+
+    public bool IsItemEquipped(ItemTemplate itemTemplate)
+    {
+        if (_currentItem == null)
+            return false;
+
+        return _currentItem.Template.ItemId == itemTemplate.ItemId;
     }
 
     private void UpdateCurrentItem()

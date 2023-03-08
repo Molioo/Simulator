@@ -27,6 +27,11 @@ public class Item : MonoBehaviour
         Amount = Mathf.Max(0,Amount- amountToRemove);
     }
 
+    public virtual bool CanBeUsed()
+    {
+        return true;
+    }
+
     public virtual void UpdateItemBehaviour()
     {
 
@@ -34,6 +39,7 @@ public class Item : MonoBehaviour
 
     public virtual void OnEquipItem()
     {
+        gameObject.SetActive(true);
         Debug.Log("On Equip Item " + Template.Name);
     }
 

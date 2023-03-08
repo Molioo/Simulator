@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class InteractableObject : MonoBehaviour
 {
+    public string ObjectName;
+
     public float InteractionDistance = 10;
 
     public List<InteractionOption> Interactions
@@ -41,6 +42,7 @@ public class InteractableObject : MonoBehaviour
     public string GetInteractionsText()
     {
         StringBuilder builder = new StringBuilder();
+        builder.Append(ObjectName + Environment.NewLine);
         for (int i = 0; i < _interactions.Count; i++)
         {
             if (_interactions[i].CanBeUsed())
