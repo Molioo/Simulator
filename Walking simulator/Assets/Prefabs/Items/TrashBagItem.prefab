@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Amount: 1
   Template: {fileID: 11400000, guid: ecc1b1a06c7bc51488a0afed89fb4ab2, type: 2}
-  Capacity: 3
+  Capacity: 5
   CurrentTrashCount: 0

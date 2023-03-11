@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9151903119364192440}
   - component: {fileID: 9151903119364192441}
   - component: {fileID: 9151903119364192446}
+  - component: {fileID: 6784111951545611019}
   m_Layer: 0
   m_Name: TrashbagItemObject
   m_TagString: Untagged
@@ -133,9 +134,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    Requirements: []
-    CanBeUsedMoreThanOnce: 0
-    DestroyAfterInteraction: 1
+    Requirements:
+    - {fileID: 6784111951545611019}
+    CanBeUsedMoreThanOnce: 1
+    DestroyAfterInteraction: 0
 --- !u!114 &9151903119364192441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +168,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6784111951545611019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151903119364192447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99311d22ceaf60c47b74c6f58f4b643d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemToHave: {fileID: 11400000, guid: ecc1b1a06c7bc51488a0afed89fb4ab2, type: 2}
+  _amountToHave: 1
