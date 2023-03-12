@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Molioo.Simulator.Quests
 {
-    [CreateAssetMenu(fileName = "New Quest Task", menuName = "Molioo/Quests/New Quest Task")]
-    public class QuestTaskTemplate : ScriptableObject
+    [System.Serializable]
+    public class QuestTaskTemplate
     {
         public string QuestTaskId = "";
 
@@ -11,7 +11,9 @@ namespace Molioo.Simulator.Quests
 
         public bool TaskComplete = false;
 
-        public int MaxValue = 1;
+        public bool ShowProgress = true;
+
+        public int RequiredValue = 1;
 
     }
 }

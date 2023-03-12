@@ -86,20 +86,11 @@ namespace Molioo.Simulator.Quests
             return false;
         }
 
-        public void TryToCompleteTask(QuestTaskTemplate questTask)
+        public void TryToAddProgressToTask(string questTaskID, int progress)
         {
             for (int i = 0; i < _currentQuests.Count; i++)
             {
-                if (_currentQuests[i].TryToCompleteTask(questTask.QuestTaskId))
-                    break;
-            }
-        }
-
-        public void TryToAddProgressToTask(QuestTaskTemplate questTask, int progress)
-        {
-            for (int i = 0; i < _currentQuests.Count; i++)
-            {
-                if (_currentQuests[i].TryToAddProgressToTask(questTask.QuestTaskId, progress))
+                if (_currentQuests[i].TryToAddProgressToTask(questTaskID, progress))
                     break;
             }
         }

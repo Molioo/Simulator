@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8144669891021140480}
   - component: {fileID: 6558220901283357800}
+  - component: {fileID: 5512722806769784242}
   m_Layer: 0
   m_Name: TrashBagItem
   m_TagString: Untagged
@@ -47,4 +48,33 @@ MonoBehaviour:
   Amount: 1
   Template: {fileID: 11400000, guid: ecc1b1a06c7bc51488a0afed89fb4ab2, type: 2}
   Capacity: 5
-  CurrentTrashCount: 0
+  _onCapacityReached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5512722806769784242}
+        m_TargetAssemblyTypeName: InvokeReactionHelper, Assembly-CSharp
+        m_MethodName: TryInvokeReaction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5512722806769784242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628280940149872207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6aced5f5f1f784e9bd108691a91f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reaction:
+    _reactionText: Looks like this bag is full. Should throw that away.
+    _reactionAudioClip: {fileID: 0}

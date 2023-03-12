@@ -21,7 +21,7 @@ public class UiQuestEntry : MonoBehaviour
     public void SetQuest(QuestData questData, Action<UiQuestEntry> onClickQuestEntry)
     {
         _questData = questData;
-        _questDescriptionText.text = questData.Template.QuestDescription;
+        _questDescriptionText.text = questData.Template.QuestName;
         _onClickQuestEntry += onClickQuestEntry;
     }
 

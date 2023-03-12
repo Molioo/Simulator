@@ -5,13 +5,13 @@ namespace Molioo.Simulator.Quests
     public class CompleteTaskHelper : MonoBehaviour
     {
         [SerializeField]
-        private QuestTaskTemplate _questTask = null;
+        private string _questTaskId;
 
         public void CompleteTask()
         {
-            if (_questTask != null)
+            if (!string.IsNullOrEmpty(_questTaskId))
             {
-                QuestsManager.Instance.TryToCompleteTask(_questTask);
+                QuestsManager.Instance.TryToCompleteTask(_questTaskId);
             }
         }
     }

@@ -1,17 +1,26 @@
+using UnityEngine;
+using UnityEngine.Events;
 
 public class TrashBagItem : Item
 {
     public int Capacity = 10;
 
-    public int CurrentTrashCount = 0;
+    [SerializeField]
+    private UnityEvent _onCapacityReached = null;
+
+    private int _currentTrashCount = 0;
 
     public override bool CanBeUsed()
     {
-        return CurrentTrashCount < Capacity;
+        return _currentTrashCount < Capacity;
     }
 
     public void TrashCollected()
     {
-        CurrentTrashCount++;
+        _currentTrashCount++;
+        if(_currentTrashCount >= Capacity)
+        {
+            _onCapacityReached?.Invoke();
+        }
     }
 }

@@ -11,9 +11,10 @@ namespace Molioo.Simulator.Quests
 
         public int CurrentValue = 0;
 
-        public int MaxValue = 1;
+        public int RequiredValue = 1;
 
-        //[NonSerialized]
+        public bool ShowProgress = true;
+
         public QuestTaskTemplate Template;
 
         public QuestTaskData(QuestTaskTemplate template)
@@ -21,7 +22,8 @@ namespace Molioo.Simulator.Quests
             Template = template;
             QuestTaskId = template.QuestTaskId;
             CurrentValue = 0;
-            MaxValue = template.MaxValue;
+            RequiredValue = template.RequiredValue;
+            ShowProgress = template.ShowProgress;
         }
 
         public void CompleteTask()
@@ -32,7 +34,7 @@ namespace Molioo.Simulator.Quests
         public void AddProgressToTask(int valueToAdd)
         {
             CurrentValue += valueToAdd;
-            if (CurrentValue >= MaxValue)
+            if (CurrentValue >= RequiredValue)
             {
                 CompleteTask();
             }
