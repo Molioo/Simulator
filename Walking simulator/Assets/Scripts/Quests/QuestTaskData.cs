@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace Molioo.Simulator.Quests
 {
@@ -13,8 +14,6 @@ namespace Molioo.Simulator.Quests
 
         public int RequiredValue = 1;
 
-        public bool ShowProgress = true;
-
         public QuestTaskTemplate Template;
 
         public QuestTaskData(QuestTaskTemplate template)
@@ -23,7 +22,6 @@ namespace Molioo.Simulator.Quests
             QuestTaskId = template.QuestTaskId;
             CurrentValue = 0;
             RequiredValue = template.RequiredValue;
-            ShowProgress = template.ShowProgress;
         }
 
         public void CompleteTask()
@@ -33,6 +31,7 @@ namespace Molioo.Simulator.Quests
 
         public void AddProgressToTask(int valueToAdd)
         {
+            UnityEngine.Debug.Log("Add progress to task");
             CurrentValue += valueToAdd;
             if (CurrentValue >= RequiredValue)
             {

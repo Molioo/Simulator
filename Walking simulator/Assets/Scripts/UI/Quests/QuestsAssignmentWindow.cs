@@ -12,10 +12,10 @@ public class QuestsAssignmentWindow : MonoBehaviour
     private RectTransform _todaysQuestsRect = null;
 
     [SerializeField]
-    private UiQuestEntry _questEntryPrefab = null;
+    private UiQuestAssignmentEntry _questEntryPrefab = null;
 
-    private List<UiQuestEntry> _availableQuestsEntries = new List<UiQuestEntry>();
-    private List<UiQuestEntry> _todaysQuestsEntries = new List<UiQuestEntry>();
+    private List<UiQuestAssignmentEntry> _availableQuestsEntries = new List<UiQuestAssignmentEntry>();
+    private List<UiQuestAssignmentEntry> _todaysQuestsEntries = new List<UiQuestAssignmentEntry>();
 
     private void OnEnable()
     {
@@ -29,7 +29,7 @@ public class QuestsAssignmentWindow : MonoBehaviour
         CreateTodaysQuests();
     }
 
-    public void OnClickQuestEntry(UiQuestEntry questEntry)
+    public void OnClickQuestEntry(UiQuestAssignmentEntry questEntry)
     {
         if(questEntry.QuestData.QuestStatus == EQuestStatus.Discovered)
         {
@@ -43,7 +43,7 @@ public class QuestsAssignmentWindow : MonoBehaviour
     {
         foreach (QuestData quest in QuestsManager.Instance.GetQuestsWithStatus(EQuestStatus.Discovered))
         {
-            UiQuestEntry questEntry = Instantiate(_questEntryPrefab, _availableQuestsRect);
+            UiQuestAssignmentEntry questEntry = Instantiate(_questEntryPrefab, _availableQuestsRect);
             questEntry.SetQuest(quest, OnClickQuestEntry);
             _availableQuestsEntries.Add(questEntry);
         }
@@ -53,7 +53,7 @@ public class QuestsAssignmentWindow : MonoBehaviour
     {
         foreach (QuestData quest in QuestsManager.Instance.GetQuestsWithStatus(EQuestStatus.InProgress))
         {
-            UiQuestEntry questEntry = Instantiate(_questEntryPrefab, _todaysQuestsRect);
+            UiQuestAssignmentEntry questEntry = Instantiate(_questEntryPrefab, _todaysQuestsRect);
             questEntry.SetQuest(quest, OnClickQuestEntry);
             _todaysQuestsEntries.Add(questEntry);
         }

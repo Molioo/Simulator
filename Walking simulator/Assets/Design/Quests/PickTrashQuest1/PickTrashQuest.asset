@@ -18,5 +18,5 @@ MonoBehaviour:
   - QuestTaskId: qtask_pickTrash1
     QuestTaskText: Pick up trash laying on the ground
     TaskComplete: 0
-    ShowProgress: 0
+    ShowProgress: 1
     RequiredValue: 10

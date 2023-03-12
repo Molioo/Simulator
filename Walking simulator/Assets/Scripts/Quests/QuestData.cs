@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Molioo.Simulator.Quests
 {
@@ -52,8 +53,10 @@ namespace Molioo.Simulator.Quests
 
         public bool TryToAddProgressToTask(string taskID, int progressToAdd)
         {
+            UnityEngine.Debug.Log("Checing for task " + taskID + " in " + QuestID);
             for (int i = 0; i < Tasks.Count; i++)
             {
+                UnityEngine.Debug.Log("QuestTaskId is " + Tasks[i].QuestTaskId + " and taskId is " + taskID);
                 if (Tasks[i].QuestTaskId == taskID)
                 {
                     Tasks[i].AddProgressToTask(progressToAdd);

@@ -3,7 +3,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class UiQuestEntry : MonoBehaviour
+public class UiQuestAssignmentEntry : MonoBehaviour
 {
     
     [SerializeField]
@@ -11,14 +11,14 @@ public class UiQuestEntry : MonoBehaviour
 
     private QuestData _questData;
 
-    private Action<UiQuestEntry> _onClickQuestEntry;
+    private Action<UiQuestAssignmentEntry> _onClickQuestEntry;
 
     public QuestData QuestData
     {
         get { return _questData; }
     }
 
-    public void SetQuest(QuestData questData, Action<UiQuestEntry> onClickQuestEntry)
+    public void SetQuest(QuestData questData, Action<UiQuestAssignmentEntry> onClickQuestEntry)
     {
         _questData = questData;
         _questDescriptionText.text = questData.Template.QuestName;
