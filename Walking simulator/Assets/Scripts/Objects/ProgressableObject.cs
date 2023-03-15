@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProgressableObject : MonoBehaviour
+public class ProgressableObject : MonoBehaviour, ISaveable
 {
     [SerializeField]
     private EObjectProgressionMethod _progressionMethod;
@@ -11,6 +11,11 @@ public class ProgressableObject : MonoBehaviour
 
     [SerializeField]
     private int _currentStepIndex = 0;
+
+    [SerializeField]
+    private string _uniqueId;
+
+    public string UniqueID { get => _uniqueId; }
 
     private void Awake()
     {
@@ -51,6 +56,26 @@ public class ProgressableObject : MonoBehaviour
             {
                 _objectProgressSteps[i].StepObject.gameObject.SetActive(true);
             }
+        }
+    }
+
+    public Dictionary<string, object> OnSave()
+    {
+        Debug.Log("!");
+        Dictionary<string, object> dataToSave = new Dictionary<string, object>
+        {
+            {nameof(_currentStepIndex), _currentStepIndex }
+        };
+        return dataToSave;
+    }
+
+    public void OnLoad(Dictionary<string, object> data)
+    {
+        Debug.Log("!2");
+
+        if (data.ContainsKey(nameof(_currentStepIndex)))
+        {
+            _currentStepIndex = (int)data[nameof(_currentStepIndex)];
         }
     }
 }
