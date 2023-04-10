@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 752946052594071296}
   - component: {fileID: 490529316289575869}
   - component: {fileID: 7185516797118816500}
+  - component: {fileID: 8550248997591797947}
+  - component: {fileID: 3624959663863260378}
   m_Layer: 0
   m_Name: TrashObject
   m_TagString: Untagged
@@ -165,11 +167,45 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Molioo.Simulator.Quests.AddProgressToTaskHelper,
+            Assembly-CSharp
+          m_MethodName: AddProgressToTask
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     Requirements:
     - {fileID: 752946052594071296}
     - {fileID: 490529316289575869}
     CanBeUsedMoreThanOnce: 0
     DestroyAfterInteraction: 1
+  - InteractionText: Check
+    InteractionKeyCode: 101
+    OnPlayerInteract:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8550248997591797947}
+          m_TargetAssemblyTypeName: InvokeReactionHelper, Assembly-CSharp
+          m_MethodName: TryInvokeReaction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    Requirements:
+    - {fileID: 3624959663863260378}
+    CanBeUsedMoreThanOnce: 1
+    DestroyAfterInteraction: 0
 --- !u!114 &752946052594071296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemToCheck: {fileID: 11400000, guid: ecc1b1a06c7bc51488a0afed89fb4ab2, type: 2}
+  _requiredEquipped: 1
 --- !u!114 &7185516797118816500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,3 +245,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e6e4e3c7dba8b4b9b38b7d8bf486fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8550248997591797947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102664267961791806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6aced5f5f1f784e9bd108691a91f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reaction:
+    _reactionText: I need a trash bag
+    _reactionAudioClip: {fileID: 0}
+--- !u!114 &3624959663863260378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102664267961791806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f30effa1d9f81640a61ecc7aeadc1e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemToCheck: {fileID: 11400000, guid: ecc1b1a06c7bc51488a0afed89fb4ab2, type: 2}
+  _requiredEquipped: 0

@@ -9,7 +9,7 @@ public class SetupObject : MonoBehaviour
     private bool _waitForSaveSystemLoad = false;
 
     [SerializeField]
-    private List<SetupStep> _setupSteps = new List<SetupStep>();
+    private List<RequirementsActionPair> _setupSteps = new List<RequirementsActionPair>();
    
     private void Start()
     {
@@ -22,27 +22,8 @@ public class SetupObject : MonoBehaviour
         {
             if (_setupSteps[i].HasMetAllRequirements())
             {
-                _setupSteps[i].SetupActions?.Invoke();
+                _setupSteps[i].Action?.Invoke();
             }
-        }
-    }
-
-    [System.Serializable]
-    private class SetupStep
-    {
-        public UnityEvent SetupActions = null;
-
-        public List<Requirement> Requirements = new List<Requirement>();
-
-        public bool HasMetAllRequirements()
-        {
-            for (int i = 0; i < Requirements.Count; i++)
-            {
-                if (!Requirements[i].IsRequirementMet())
-                    return false;
-            }
-
-            return true;
         }
     }
 
