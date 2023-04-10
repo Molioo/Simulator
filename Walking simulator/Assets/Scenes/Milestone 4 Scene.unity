@@ -6150,6 +6150,9 @@ GameObject:
   - component: {fileID: 1938003154}
   - component: {fileID: 1938003153}
   - component: {fileID: 1938003156}
+  - component: {fileID: 1938003159}
+  - component: {fileID: 1938003158}
+  - component: {fileID: 1938003157}
   m_Layer: 0
   m_Name: FuseBoxBox
   m_TagString: Untagged
@@ -6246,6 +6249,82 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1938003157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938003152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b98638c8d9625347891b9f964d7c6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _globalBoolVariable: {fileID: 11400000, guid: 2ff09af70b9bdec408dc3f41adc9a274, type: 2}
+  _requiredValue: 0
+--- !u!114 &1938003158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938003152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b98638c8d9625347891b9f964d7c6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _globalBoolVariable: {fileID: 11400000, guid: 2ff09af70b9bdec408dc3f41adc9a274, type: 2}
+  _requiredValue: 1
+--- !u!114 &1938003159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938003152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31811c489249c4341bc1c659adf17dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waitForSaveSystemLoad: 0
+  _setupSteps:
+  - SetupActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1938003156}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: OpenFuseBox
+            m_BoolArgument: 0
+          m_CallState: 2
+    Requirements:
+    - {fileID: 1938003158}
+  - SetupActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1938003156}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: CloseFuseBox
+            m_BoolArgument: 0
+          m_CallState: 2
+    Requirements:
+    - {fileID: 1938003157}
 --- !u!1 &1950338181
 GameObject:
   m_ObjectHideFlags: 0
