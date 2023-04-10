@@ -61,7 +61,6 @@ public class ProgressableObject : MonoBehaviour, ISaveable
 
     public Dictionary<string, object> OnSave()
     {
-        Debug.Log("!");
         Dictionary<string, object> dataToSave = new Dictionary<string, object>
         {
             {nameof(_currentStepIndex), _currentStepIndex }
@@ -71,8 +70,6 @@ public class ProgressableObject : MonoBehaviour, ISaveable
 
     public void OnLoad(Dictionary<string, object> data)
     {
-        Debug.Log("!2");
-
         if (data.ContainsKey(nameof(_currentStepIndex)))
         {
             _currentStepIndex = (int)data[nameof(_currentStepIndex)];

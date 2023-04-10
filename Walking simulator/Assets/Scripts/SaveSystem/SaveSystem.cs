@@ -3,48 +3,53 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public static class SaveSystem 
+public static class SaveSystem
 {
     private const string SAVE_FILE_NAME = "Save.json";
     public static string SaveFilePath { get { return Application.persistentDataPath + "/" + SAVE_FILE_NAME; } }
 
-    private static List<GameObject> _saveObjects;
-
-    //private static List<ISaveable> _saveables = new List<ISaveable>();
+    private static List<ISaveable> _saveables = new List<ISaveable>();
 
     private static BinaryFormatter formatter;
 
 
     public static void FindSaveObjects()
     {
-        _saveObjects = new List<GameObject>();
+        //_saveObjects = new List<GameObject>();
+        _saveables = new List<ISaveable>();
+
         // FInd all objects, even in a large scene this may only take a second or 2.
         GameObject[] gos = GameObject.FindObjectsOfType<GameObject>();
         // Iterate the objects.
         foreach (GameObject go in gos)
         {
-            if(go.TryGetComponent(out ISaveable saveable))
+            if (go.TryGetComponent(out ISaveable saveable))
             {
-                _saveObjects.Add(go);
+                //_saveObjects.Add(go);
+                _saveables.Add(saveable);
             }
         }
+
+        _saveables.AddRange(SaveableAssetsReferenceList.Instance.GetSaveableAssets());
     }
 
 
     public static void SaveData()
     {
         //Check if initialized
-        if (_saveObjects == null || _saveObjects.Count == 0)
+        if (_saveables == null || _saveables.Count == 0)
             FindSaveObjects();
 
         // Create our data object
         Dictionary<string, Dictionary<string, object>> allData = new Dictionary<string, Dictionary<string, object>>();
         // Collect all the data.
-        foreach (GameObject go in _saveObjects)
+        foreach (ISaveable saveable in _saveables)
         {
-            ISaveable isave = go.GetComponent<ISaveable>();
-            Debug.Log("Adding to alldata");
-            allData.Add(isave.UniqueID, isave.OnSave());
+            if (string.IsNullOrEmpty(saveable.UniqueID))
+            {
+                Debug.LogError("Saveable Unique ID is null or empty");
+            }
+            allData.Add(saveable.UniqueID, saveable.OnSave());
         }
         //Save the data.
         SaveDataBinary(allData);
@@ -56,7 +61,7 @@ public static class SaveSystem
     public static void LoadData()
     {
         //Check if we have initialized
-        if (_saveObjects == null || _saveObjects.Count == 0)
+        if (_saveables == null || _saveables.Count == 0)
             FindSaveObjects();
 
         //Get our data
@@ -66,16 +71,31 @@ public static class SaveSystem
             Debug.LogWarning("Save File NOT FOUND");
             return;
         }
+
         //Iterate and load onto our objects
-        foreach (GameObject go in _saveObjects)
+        foreach (ISaveable saveable in _saveables)
         {
-            ISaveable isave = go.GetComponent<ISaveable>();
-            isave.OnLoad(allData[isave.UniqueID]);
+            if (allData.ContainsKey(saveable.UniqueID))
+            {
+                saveable.OnLoad(allData[saveable.UniqueID]);
+            }
+            else
+            {
+                Debug.Log($"Saveable with unique id {saveable.UniqueID} is not in all data list");
+            }
+        }
+    }
+
+    public static void DebugData(Dictionary<string, object> objectData)
+    {
+        foreach (KeyValuePair<string, object> kvp in objectData)
+        {
+            Debug.Log($"Key: { kvp.Key.ToString()}, Value: {kvp.Value.ToString()}");
         }
     }
 
 
-    public static void SaveDataBinary(object obj)
+    private static void SaveDataBinary(object obj)
     {
         formatter = new BinaryFormatter();
         FileStream fileStream = new FileStream(SaveFilePath, FileMode.Create, FileAccess.Write);
@@ -83,7 +103,7 @@ public static class SaveSystem
         fileStream.Close();
     }
 
-    public static T LoadDataBinary<T>()
+    private static T LoadDataBinary<T>()
     {
         object obj = null;
         formatter = new BinaryFormatter();
