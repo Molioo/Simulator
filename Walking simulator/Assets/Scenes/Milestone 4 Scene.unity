@@ -160,7 +160,7 @@ MonoBehaviour:
     ProgressStepIndex: 2
   - StepObject: {fileID: 894185900}
     ProgressStepIndex: 3
-  _currentStepIndex: 2
+  _currentStepIndex: 1
   _uniqueId: progressable2
 --- !u!4 &10802044
 Transform:
@@ -3187,6 +3187,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 939629129}
+  - component: {fileID: 939629134}
+  - component: {fileID: 939629133}
+  - component: {fileID: 939629132}
+  - component: {fileID: 939629131}
+  - component: {fileID: 939629130}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -3210,6 +3215,141 @@ Transform:
   m_Father: {fileID: 1938003155}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.285, y: -2.268, z: -0.011}
+--- !u!114 &939629130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939629128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e7d7c98a84ea74bbf16525c2d60047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _globaBoolVariable: {fileID: 11400000, guid: 2ff09af70b9bdec408dc3f41adc9a274, type: 2}
+--- !u!114 &939629131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939629128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b98638c8d9625347891b9f964d7c6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _globalBoolVariable: {fileID: 11400000, guid: 2ff09af70b9bdec408dc3f41adc9a274, type: 2}
+  _requiredValue: 1
+--- !u!114 &939629132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939629128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b98638c8d9625347891b9f964d7c6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _globalBoolVariable: {fileID: 11400000, guid: 2ff09af70b9bdec408dc3f41adc9a274, type: 2}
+  _requiredValue: 0
+--- !u!114 &939629133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939629128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23892b27323ffd4cb7e928b8be8f395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectName: FuseBox Door
+  InteractionDistance: 3
+  _interactions:
+  - InteractionText: Open
+    InteractionKeyCode: 101
+    OnPlayerInteract:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1938003156}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: OpenFuseBox
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 939629130}
+          m_TargetAssemblyTypeName: SetGlobalBoolVariableHelper, Assembly-CSharp
+          m_MethodName: SetValue
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    Requirements:
+    - {fileID: 939629132}
+    CanBeUsedMoreThanOnce: 1
+    DestroyAfterInteraction: 0
+  - InteractionText: Close
+    InteractionKeyCode: 101
+    OnPlayerInteract:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1938003156}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: CloseFuseBox
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 939629130}
+          m_TargetAssemblyTypeName: SetGlobalBoolVariableHelper, Assembly-CSharp
+          m_MethodName: SetValue
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    Requirements:
+    - {fileID: 939629131}
+    CanBeUsedMoreThanOnce: 1
+    DestroyAfterInteraction: 0
+--- !u!65 &939629134
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939629128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.59290886, y: 0.7874151, z: 0.021262702}
+  m_Center: {x: 0.27400702, y: -0.044797752, z: 0.01790437}
 --- !u!1 &946468267
 GameObject:
   m_ObjectHideFlags: 0
@@ -6074,8 +6214,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938003152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5319242, y: 0.5, z: -9.944029}
+  m_LocalRotation: {x: -0, y: 0.6786733, z: -0, w: 0.7344403}
+  m_LocalPosition: {x: -8.662, y: 1.5, z: -7.371}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6084,7 +6224,7 @@ Transform:
   - {fileID: 2099188892}
   m_Father: {fileID: 0}
   m_RootOrder: 35
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 85.48, z: 0}
 --- !u!95 &1938003156
 Animator:
   serializedVersion: 5
@@ -7678,7 +7818,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.5008116
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4458833386214988181, guid: 5fc21dc867c5f0440aba6ea1af3fd3ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5fc21dc867c5f0440aba6ea1af3fd3ea, type: 3}
 --- !u!1001 &6459628294829951987
 PrefabInstance:
