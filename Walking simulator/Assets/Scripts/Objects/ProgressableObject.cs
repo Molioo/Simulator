@@ -62,13 +62,28 @@ public class ProgressableObject : MonoBehaviour, ISaveable
         }
     }
 
-    public void UpdateProgressStep()
+    public void IncreaseProgressStep()
     {
         switch (_progressionMethod)
         {
             case EObjectProgressionMethod.UseChildObjects:
                 SetChildObjectActive(_currentStepIndex, false);
                 _currentStepIndex++;
+                SetChildObjectActive(_currentStepIndex, true);
+                break;
+            case EObjectProgressionMethod.SpawnPrefabs:
+                SpawnObject(_currentStepIndex);
+                break;
+        }
+    }
+
+    public void DecreaseProgressStep()
+    {
+        switch (_progressionMethod)
+        {
+            case EObjectProgressionMethod.UseChildObjects:
+                SetChildObjectActive(_currentStepIndex, false);
+                _currentStepIndex--;
                 SetChildObjectActive(_currentStepIndex, true);
                 break;
             case EObjectProgressionMethod.SpawnPrefabs:

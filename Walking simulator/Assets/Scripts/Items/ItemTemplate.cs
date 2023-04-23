@@ -15,6 +15,8 @@ namespace Molioo.Simulator.Items
 
         public bool ShouldBeSpawnedAsBoneChild;
 
+        public bool AlwaysEquipped;
+
         public HumanBodyBones BoneParent;
 
         public Vector3 LocalPositionInBone;

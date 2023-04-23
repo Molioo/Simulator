@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4795053868257375221
+--- !u!1 &2830077476516168104
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,24 +91,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4795053868257375220}
-  - component: {fileID: 4795053868257375217}
-  - component: {fileID: 4795053868257375222}
-  - component: {fileID: 4795053868257375223}
+  - component: {fileID: 1172717139103383411}
+  - component: {fileID: 5059131137460986968}
+  - component: {fileID: 3656470127466297974}
+  - component: {fileID: 3174400518425593230}
   m_Layer: 0
-  m_Name: Plank
+  m_Name: Plank (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4795053868257375220
+  m_IsActive: 1
+--- !u!4 &1172717139103383411
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4795053868257375221}
+  m_GameObject: {fileID: 2830077476516168104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 0.05, z: 0.3}
@@ -117,21 +117,21 @@ Transform:
   m_Father: {fileID: 4795053869248822095}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4795053868257375217
+--- !u!33 &5059131137460986968
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4795053868257375221}
+  m_GameObject: {fileID: 2830077476516168104}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4795053868257375222
+--- !u!23 &3656470127466297974
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4795053868257375221}
+  m_GameObject: {fileID: 2830077476516168104}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -167,13 +167,110 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4795053868257375223
+--- !u!65 &3174400518425593230
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4795053868257375221}
+  m_GameObject: {fileID: 2830077476516168104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3865372608590336461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6604374571419962463}
+  - component: {fileID: 8382910691343085733}
+  - component: {fileID: 1553204908465168312}
+  - component: {fileID: 6107357876890919556}
+  m_Layer: 0
+  m_Name: Plank (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6604374571419962463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865372608590336461}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 0.05, z: 0.3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4795053869248822095}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8382910691343085733
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865372608590336461}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1553204908465168312
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865372608590336461}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 95fcf9331ca635c459a201f2c56f44dc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6107357876890919556
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865372608590336461}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
@@ -195,6 +292,10 @@ GameObject:
   - component: {fileID: 4795053869248822090}
   - component: {fileID: 4795053869248822091}
   - component: {fileID: 4795053869248822088}
+  - component: {fileID: 7165769086479577457}
+  - component: {fileID: 6639188858739884696}
+  - component: {fileID: 8192817983263024069}
+  - component: {fileID: 6090630605789287386}
   m_Layer: 0
   m_Name: PlankObjectPlacementPosition
   m_TagString: Untagged
@@ -215,7 +316,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2524188405471183765}
-  - {fileID: 4795053868257375220}
+  - {fileID: 1172717139103383411}
+  - {fileID: 6604374571419962463}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -235,8 +337,10 @@ MonoBehaviour:
   _objectProgressSteps:
   - StepObject: {fileID: 2524188405471183761}
     ProgressStepIndex: 0
-  - StepObject: {fileID: 4795053868257375221}
+  - StepObject: {fileID: 2830077476516168104}
     ProgressStepIndex: 1
+  - StepObject: {fileID: 3865372608590336461}
+    ProgressStepIndex: 2
   _currentStepIndex: 0
   _uniqueId: plank1
 --- !u!65 &4795053869248822089
@@ -286,7 +390,19 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 4795053869248822094}
           m_TargetAssemblyTypeName: ProgressableObject, Assembly-CSharp
-          m_MethodName: UpdateProgressStep
+          m_MethodName: IncreaseProgressStep
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6090630605789287386}
+          m_TargetAssemblyTypeName: InvokeReactionHelper, Assembly-CSharp
+          m_MethodName: TryInvokeReaction
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -299,6 +415,29 @@ MonoBehaviour:
     Requirements:
     - {fileID: 4795053869248822090}
     - {fileID: 4795053869248822091}
+    CanBeUsedMoreThanOnce: 0
+    DestroyAfterInteraction: 0
+  - InteractionText: Nail it
+    InteractionKeyCode: 101
+    OnPlayerInteract:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4795053869248822094}
+          m_TargetAssemblyTypeName: ProgressableObject, Assembly-CSharp
+          m_MethodName: IncreaseProgressStep
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    Requirements:
+    - {fileID: 7165769086479577457}
+    - {fileID: 6639188858739884696}
+    - {fileID: 8192817983263024069}
     CanBeUsedMoreThanOnce: 0
     DestroyAfterInteraction: 0
 --- !u!114 &4795053869248822090
@@ -343,3 +482,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemToAdd: {fileID: 11400000, guid: 6a9707bca17afc34dab7c55caa1defc5, type: 2}
   _amountToRemove: 1
+--- !u!114 &7165769086479577457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795053869248822092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aeadb68552f13544aea64d188d48384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemToHave: {fileID: 11400000, guid: b36a407f8fe31914fac646ada0d8402e, type: 2}
+  _amountToHave: 4
+--- !u!114 &6639188858739884696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795053869248822092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f30effa1d9f81640a61ecc7aeadc1e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemToCheck: {fileID: 11400000, guid: e3bc56dbac4601c40adf6948a270c617, type: 2}
+  _requiredEquipped: 1
+--- !u!114 &8192817983263024069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795053869248822092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9f1becd44ece3488b57f6f554128c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _progressableObject: {fileID: 4795053869248822094}
+  _requiredProgressStep: 1
+--- !u!114 &6090630605789287386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795053869248822092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6aced5f5f1f784e9bd108691a91f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reaction:
+    _reactionText: 'I should nail it '
+    _reactionAudioClip: {fileID: 0}

@@ -17,6 +17,7 @@ MonoBehaviour:
   Stackable: 0
   ItemPrefab: {fileID: 3104828545661299432, guid: 578a1465ff8ba0f4cbffb9c85623abf3, type: 3}
   ShouldBeSpawnedAsBoneChild: 1
+  AlwaysEquipped: 1
   BoneParent: 9
   LocalPositionInBone: {x: 0.001, y: -0.024, z: -0.284}
   LocalRotationInBone: {x: 355, y: 348, z: 92.36}

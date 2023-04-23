@@ -1,5 +1,6 @@
 using Molioo.Simulator.Items;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -19,7 +20,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     private Item _currentItem = null;
 
-    public Item CurrentItem { get { return _currentItem; }}
+    public Item CurrentItem { get { return _currentItem; } }
 
     private void Update()
     {
@@ -47,6 +48,11 @@ public class PlayerInventoryManager : MonoBehaviour
             normalItem.Amount = 1;
             normalItem.gameObject.SetActive(false);
             _playerCurrentItems.Add(normalItem);
+
+            if (template.AlwaysEquipped)
+            {
+                SetCurrentItem(normalItem);
+            }
         }
     }
 
@@ -57,6 +63,7 @@ public class PlayerInventoryManager : MonoBehaviour
             if (_playerCurrentItems[i].Template.ItemId == template.ItemId)
             {
                 _playerCurrentItems[i].AddAmount(amountToAdd);
+
                 return;
             }
         }
@@ -65,6 +72,11 @@ public class PlayerInventoryManager : MonoBehaviour
         Item stackableItem = SpawnItem(template);
         stackableItem.Amount = amountToAdd;
         _playerCurrentItems.Add(stackableItem);
+
+        if (template.AlwaysEquipped)
+        {
+            SetCurrentItem(stackableItem);
+        }
     }
 
     private Item SpawnItem(ItemTemplate itemTemplate)
@@ -166,6 +178,9 @@ public class PlayerInventoryManager : MonoBehaviour
         if (_currentItem != null)
         {
             if (_currentItem == item)
+                return;
+
+            if (_currentItem.Template.AlwaysEquipped)
                 return;
 
             _currentItem.OnUnequipItem();
