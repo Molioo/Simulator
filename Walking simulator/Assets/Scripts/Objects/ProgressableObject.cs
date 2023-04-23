@@ -17,6 +17,9 @@ public class ProgressableObject : MonoBehaviour, ISaveable
 
     public string UniqueID { get => _uniqueId; }
 
+    public int CurrentStepIndex { get => _currentStepIndex; }
+
+
     private void Awake()
     {
         InitializeObject();
@@ -29,7 +32,7 @@ public class ProgressableObject : MonoBehaviour, ISaveable
         switch (_progressionMethod)
         {
             case EObjectProgressionMethod.UseChildObjects:
-                EnableChildObject(_currentStepIndex);
+                SetChildObjectActive(_currentStepIndex,true);
                 break;
             case EObjectProgressionMethod.SpawnPrefabs:
                 SpawnObject(_currentStepIndex);
@@ -48,14 +51,29 @@ public class ProgressableObject : MonoBehaviour, ISaveable
         }
     }
 
-    private void EnableChildObject(int progressStep)
+    private void SetChildObjectActive(int progressStep, bool active)
     {
         for (int i = 0; i < _objectProgressSteps.Count; i++)
         {
             if (_objectProgressSteps[i].ProgressStepIndex == progressStep)
             {
-                _objectProgressSteps[i].StepObject.gameObject.SetActive(true);
+                _objectProgressSteps[i].StepObject.gameObject.SetActive(active);
             }
+        }
+    }
+
+    public void UpdateProgressStep()
+    {
+        switch (_progressionMethod)
+        {
+            case EObjectProgressionMethod.UseChildObjects:
+                SetChildObjectActive(_currentStepIndex, false);
+                _currentStepIndex++;
+                SetChildObjectActive(_currentStepIndex, true);
+                break;
+            case EObjectProgressionMethod.SpawnPrefabs:
+                SpawnObject(_currentStepIndex);
+                break;
         }
     }
 

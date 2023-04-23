@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2599272a0854e37408434cafcd615bb0, type: 3}
+  m_Name: PlankItemTemplate
+  m_EditorClassIdentifier: 
+  ItemId: item_plank
+  Name: Plank
+  Stackable: 0
+  ItemPrefab: {fileID: 3104828545661299432, guid: 578a1465ff8ba0f4cbffb9c85623abf3, type: 3}
+  ShouldBeSpawnedAsBoneChild: 1
+  BoneParent: 9
+  LocalPositionInBone: {x: 0.001, y: -0.024, z: -0.284}
+  LocalRotationInBone: {x: 355, y: 348, z: 92.36}
