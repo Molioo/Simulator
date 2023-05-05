@@ -1,13 +1,10 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
 public class InteractionOption 
 {
     public string InteractionText;
-
-    public KeyCode InteractionKeyCode = KeyCode.E;
 
     public UnityEvent OnPlayerInteract = null;
 
@@ -39,12 +36,6 @@ public class InteractionOption
         }
     }
 
-    public void OnValidate()
-    {
-        if (InteractionKeyCode == KeyCode.None)
-            InteractionKeyCode = KeyCode.E;
-    }
-  
     private bool HasMetAllRequirements()
     {
         for (int i = 0; i < Requirements.Count; i++)

@@ -10,6 +10,9 @@ public class GameUIManager : Singleton<GameUIManager>
     private TextMeshProUGUI _interactionText = null;
 
     [SerializeField]
+    private float _reactionTime = 3f;
+
+    [SerializeField]
     private CanvasGroup _canvasGroup = null;
 
     private void Update()
@@ -29,7 +32,7 @@ public class GameUIManager : Singleton<GameUIManager>
     
     public void ShowReactionText(string text)
     {
-        _reactionTextController.SetReactionText(text);
+        _reactionTextController.SetReactionText(text, _reactionTime);
     }
 
   

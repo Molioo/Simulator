@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteractablesHandler : MonoBehaviour
 {
     public static InteractableObject CurrentlyFocusedInteractable = null;
+
+    public static List<KeyCode> InteractionKeyCodes = new List<KeyCode>() { KeyCode.E, KeyCode.F, KeyCode.G };
 
     [SerializeField]
     private FPSCameraController _cameraController;
@@ -11,6 +14,8 @@ public class PlayerInteractablesHandler : MonoBehaviour
     private LayerMask _objectsRaycastLayerMask;
 
     private float _distanceToCurrentObject;
+
+    private int _interactableKeyCounter = 0;
 
     private void Update()
     {
@@ -56,16 +61,19 @@ public class PlayerInteractablesHandler : MonoBehaviour
         if (!CurrentlyFocusedInteractable.IsAnyOptionUsable())
             return;
 
+        _interactableKeyCounter = 0;
         for (int i = 0; i < CurrentlyFocusedInteractable.Interactions.Count; i++)
         {
             if (!CurrentlyFocusedInteractable.Interactions[i].CanBeUsed())
                 continue;
 
-            if (Input.GetKeyDown(CurrentlyFocusedInteractable.Interactions[i].InteractionKeyCode))
+            if (Input.GetKeyDown(InteractionKeyCodes[_interactableKeyCounter]))
             {
                 CurrentlyFocusedInteractable.Interact(CurrentlyFocusedInteractable.Interactions[i]);
                 break;
             }
+
+            _interactableKeyCounter++;
         }
     }
 }

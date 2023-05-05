@@ -17,6 +17,8 @@ public class InteractableObject : MonoBehaviour
     [SerializeField]
     private List<InteractionOption> _interactions = new List<InteractionOption>();
 
+    private int _interactableKeyCounter = 0;
+
     public void Interact(InteractionOption interaction)
     {
         if(interaction.CanBeUsed())
@@ -43,22 +45,15 @@ public class InteractableObject : MonoBehaviour
     {
         StringBuilder builder = new StringBuilder();
         builder.Append(ObjectName + Environment.NewLine);
+        _interactableKeyCounter = 0;
         for (int i = 0; i < _interactions.Count; i++)
         {
             if (_interactions[i].CanBeUsed())
             {
-                builder.Append("[" + _interactions[i].InteractionKeyCode.ToString() + "] " + _interactions[i].InteractionText + Environment.NewLine);
+                builder.Append("[" + PlayerInteractablesHandler.InteractionKeyCodes[_interactableKeyCounter].ToString() + "] " + _interactions[i].InteractionText + Environment.NewLine);
+                _interactableKeyCounter++;
             }
         }
         return builder.ToString();
     }
-
-    private void OnValidate()
-    {
-        for (int i = 0; i < _interactions.Count; i++)
-        {
-            _interactions[i].OnValidate();
-        }
-    }
-
 }
