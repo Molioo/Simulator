@@ -3230,7 +3230,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7074179148558506260
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3247,7 +3247,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5042461527286591861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,7 +3431,7 @@ MonoBehaviour:
   _walkSpeed: 8
   _runSpeed: 12
   _maximumPlayerSpeed: 150
-  _jumpForce: 300
+  _jumpForce: 200
   _jumpCooldown: 1
   _groundChecker: {fileID: 5231890137799176816}
   _groundCheckerDist: 0.9

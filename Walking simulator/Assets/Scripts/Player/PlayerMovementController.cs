@@ -35,6 +35,9 @@ public class PlayerMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.CurrentPlayerGameMode != EPlayerGameMode.PlayerMovement)
+            return;
+
         SetIsGrounded();
         SetInputValues();
         HandleMovement();

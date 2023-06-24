@@ -19,6 +19,9 @@ public class PlayerInteractablesHandler : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.CurrentPlayerGameMode != EPlayerGameMode.PlayerMovement)
+            return;
+
         RaycastForInteractableObjects();
         HandleInteractInput();
     }

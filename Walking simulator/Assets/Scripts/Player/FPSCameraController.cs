@@ -4,12 +4,19 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class FPSCameraController : Singleton<FPSCameraController>
 {
+    public static bool BlockCameraRotation = false;
+
     [SerializeField] private Transform _playerTransform = null;
     [SerializeField] private Transform _cameraPositionTransform = null;
 
     [SerializeField] private float _cameraSensitivity = 3;
     [SerializeField] private float _maxUpAngle = 80;
     [SerializeField] private float _maxDownAngle = -80;
+
+    public Transform CameraPositionTransform
+    {
+        get {  return _cameraPositionTransform;}
+    }
 
     private float _mouseX;
     private float _mouseY;
@@ -32,6 +39,12 @@ public class FPSCameraController : Singleton<FPSCameraController>
 
     private void Update()
     {
+        if (GameManager.Instance.CurrentPlayerGameMode != EPlayerGameMode.PlayerMovement)
+            return;
+
+        if (BlockCameraRotation)
+            return;
+
         // Mouse input
         _mouseX = Input.GetAxis("Mouse X") * _cameraSensitivity;
         _mouseY = Input.GetAxis("Mouse Y") * _cameraSensitivity;
@@ -46,6 +59,7 @@ public class FPSCameraController : Singleton<FPSCameraController>
         _playerTransform.Rotate(Vector3.up * _mouseX);
         transform.position = _cameraPositionTransform.position;
     }
+
 
     public void Shake(float magnitude, float duration)
     {

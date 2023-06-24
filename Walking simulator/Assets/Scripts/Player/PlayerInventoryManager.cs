@@ -24,6 +24,9 @@ public class PlayerInventoryManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.CurrentPlayerGameMode != EPlayerGameMode.PlayerMovement)
+            return;
+
         CheckForItemSelectInput();
         UpdateCurrentItem();
     }
