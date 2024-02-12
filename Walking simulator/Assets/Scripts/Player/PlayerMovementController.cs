@@ -38,6 +38,9 @@ public class PlayerMovementController : MonoBehaviour
         if (GameManager.Instance.CurrentPlayerGameMode != EPlayerGameMode.PlayerMovement)
             return;
 
+        if (GameUIManager.Instance.AnyWindowOpened)
+            return;
+
         SetIsGrounded();
         SetInputValues();
         HandleMovement();

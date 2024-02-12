@@ -17,6 +17,8 @@ namespace Molioo.Simulator.Items
 
         public bool AlwaysEquipped;
 
+        public Sprite Icon;
+
         public HumanBodyBones BoneParent;
 
         public Vector3 LocalPositionInBone;

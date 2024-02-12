@@ -1,8 +1,18 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class GameUIManager : Singleton<GameUIManager>
 {
+    public bool AnyWindowOpened 
+    {  
+        get
+        {
+            return windowsOpened.Count > 0;
+        } 
+    }
+
+
     [SerializeField]
     private ReactionTextController _reactionTextController;
 
@@ -14,6 +24,8 @@ public class GameUIManager : Singleton<GameUIManager>
 
     [SerializeField]
     private CanvasGroup _canvasGroup = null;
+
+    private List<string> windowsOpened = new List<string>();
 
     private void Update()
     {
@@ -33,6 +45,22 @@ public class GameUIManager : Singleton<GameUIManager>
     public void ShowReactionText(string text)
     {
         _reactionTextController.SetReactionText(text, _reactionTime);
+    }
+
+    public void WindowOpened(string name)
+    {
+        if (windowsOpened.Contains(name) == false)
+        {
+            windowsOpened.Add(name);
+        }
+    }
+
+    public void WindowClosed(string name)
+    {
+        if(windowsOpened.Contains(name))
+        {
+            windowsOpened.Remove(name);
+        }
     }
 
   

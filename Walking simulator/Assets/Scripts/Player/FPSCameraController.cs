@@ -45,6 +45,9 @@ public class FPSCameraController : Singleton<FPSCameraController>
         if (BlockCameraRotation)
             return;
 
+        if (GameUIManager.Instance.AnyWindowOpened)
+            return;
+
         // Mouse input
         _mouseX = Input.GetAxis("Mouse X") * _cameraSensitivity;
         _mouseY = Input.GetAxis("Mouse Y") * _cameraSensitivity;

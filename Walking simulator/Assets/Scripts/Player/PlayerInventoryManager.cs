@@ -22,6 +22,9 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public Item CurrentItem { get { return _currentItem; } }
 
+    public List<Item> AllItems {  get { return _playerCurrentItems; } }
+
+
     private void Update()
     {
         if (GameManager.Instance.CurrentPlayerGameMode != EPlayerGameMode.PlayerMovement)
