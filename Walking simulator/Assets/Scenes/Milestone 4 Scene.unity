@@ -10233,6 +10233,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2480928337715778077, guid: 0d409e88e49996147bd03a8178690863, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3104175600511481758, guid: 0d409e88e49996147bd03a8178690863, type: 3}
       propertyPath: m_Color.a
       value: 0.54901963

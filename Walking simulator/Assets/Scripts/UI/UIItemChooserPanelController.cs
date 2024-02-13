@@ -1,13 +1,15 @@
-using Molioo.Simulator.Items;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
-public class ItemChooserPanelController : UiWindowBase
+
+public class UIItemChooserPanelController : UiWindowBase
 {
     [SerializeField]
     private UiItemButton itemButtonPrefab;
+
+    [SerializeField]
+    private TextMeshProUGUI itemNameText;
 
     [SerializeField]
     private RectTransform itemsRect;
@@ -59,6 +61,7 @@ public class ItemChooserPanelController : UiWindowBase
         isOpened = true;
         currentlyHoveredItem = null;
         currentOnItemChosen = onItemChosen;
+        itemNameText.text = "";
 
         GameManager.Instance.SwitchCursorVisible(true);
 
@@ -123,6 +126,7 @@ public class ItemChooserPanelController : UiWindowBase
     public void ItemHovered(Item item)
     {
         currentlyHoveredItem = item;
+        itemNameText.text = item.Template.Name;
     }
 
     public void ItemUnhovered(Item item)
@@ -130,6 +134,7 @@ public class ItemChooserPanelController : UiWindowBase
         if (currentlyHoveredItem == item)
         {
             currentlyHoveredItem = null;
+            itemNameText.text = "";
         }
     }
 
