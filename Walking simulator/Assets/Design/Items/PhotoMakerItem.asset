@@ -15,5 +15,11 @@ MonoBehaviour:
   ItemId: item_photoMaker
   Name: Camera
   Stackable: 0
-  UsesAdditionalPrefab: 1
+  CanBeEquipped: 1
+  Icon: {fileID: 0}
   ItemPrefab: {fileID: 865942824077052820, guid: 82405cda36f78a047be993c17577a07e, type: 3}
+  ShouldBeSpawnedAsBoneChild: 0
+  AlwaysEquipped: 0
+  BoneParent: 0
+  LocalPositionInBone: {x: 0, y: 0, z: 0}
+  LocalRotationInBone: {x: 0, y: 0, z: 0}

@@ -17,25 +17,12 @@ public class GameUIManager : Singleton<GameUIManager>
     private ReactionTextController _reactionTextController;
 
     [SerializeField]
-    private TextMeshProUGUI _interactionText = null;
-
-    [SerializeField]
     private float _reactionTime = 3f;
 
     [SerializeField]
     private CanvasGroup _canvasGroup = null;
 
     private List<string> windowsOpened = new List<string>();
-
-    private void Update()
-    {
-        SetInteractionText();
-    }
-
-    private void SetInteractionText()
-    {
-        _interactionText.text = PlayerInteractablesHandler.GetInteractionText();
-    }
 
     public void SwitchAllUIVisibility(bool visible)
     {
@@ -53,13 +40,20 @@ public class GameUIManager : Singleton<GameUIManager>
         {
             windowsOpened.Add(name);
         }
+
+        Time.timeScale = 0.001f;
     }
 
     public void WindowClosed(string name)
     {
-        if(windowsOpened.Contains(name))
+        if (windowsOpened.Contains(name))
         {
             windowsOpened.Remove(name);
+        }
+
+        if (windowsOpened.Count == 0)
+        {
+            Time.timeScale = 1f;
         }
     }
 

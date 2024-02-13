@@ -4,7 +4,6 @@ using UnityEngine;
 public class SaveableAssetsReferenceList : Singleton<SaveableAssetsReferenceList>
 {
     public List<ScriptableObject> SaveableAssets = new List<ScriptableObject>();
-
     
     public List<ISaveable> GetSaveableAssets()
     {

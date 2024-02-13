@@ -39,7 +39,9 @@ public class PlayerMovementController : MonoBehaviour
             return;
 
         if (GameUIManager.Instance.AnyWindowOpened)
+        {
             return;
+        }
 
         SetIsGrounded();
         SetInputValues();
@@ -93,7 +95,6 @@ public class PlayerMovementController : MonoBehaviour
             _playerRigidbody.velocity = ClampSqrMag(_playerRigidbody.velocity + _inputForce * Time.fixedDeltaTime, _playerRigidbody.velocity.sqrMagnitude);
         }
     }
-
     private void UnblockJump()
     {
         _jumpBlocked = false;

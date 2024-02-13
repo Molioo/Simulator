@@ -33,12 +33,12 @@ public class ItemChooserPanelController : UiWindowBase
     {
         if (Input.GetKeyDown(KeyCode.Q) && isOpened == false)
         {
-            ShowForItems(PlayerSystemsManager.Instance.InventoryManager.AllItems, (i) => Debug.Log(i.Template.Name));
+            ShowForItems(PlayerSystemsManager.Instance.InventoryManager.AllItems, PlayerSystemsManager.Instance.InventoryManager.SetCurrentItem);
         }
 
-        if(Input.GetKeyUp(KeyCode.Q) && isOpened)
+        if (Input.GetKeyUp(KeyCode.Q) && isOpened)
         {
-            if(currentlyHoveredItem!= null)
+            if (currentlyHoveredItem!= null)
             {
                 ItemSelected(currentlyHoveredItem);
             }
@@ -71,6 +71,11 @@ public class ItemChooserPanelController : UiWindowBase
     {
         foreach (Item item in items)
         {
+            if (item.Template.CanBeEquipped == false)
+            {
+                continue;
+            }
+
             UiItemButton itemButton = Instantiate<UiItemButton>(itemButtonPrefab, itemsRect);
             itemButton.Setup(item, ItemHovered, ItemUnhovered, ItemSelected);
             itemButtons.Add(itemButton);
@@ -111,19 +116,18 @@ public class ItemChooserPanelController : UiWindowBase
         {
             Destroy(item.gameObject);
         }
+
         itemButtons.Clear();
     }
 
     public void ItemHovered(Item item)
     {
-        Debug.Log("Item hovered " + item.Template.Name);
         currentlyHoveredItem = item;
     }
 
     public void ItemUnhovered(Item item)
     {
-        Debug.Log("Item hovered " + item.Template.Name);
-        if(currentlyHoveredItem == item)
+        if (currentlyHoveredItem == item)
         {
             currentlyHoveredItem = null;
         }
@@ -131,9 +135,7 @@ public class ItemChooserPanelController : UiWindowBase
 
     public void ItemSelected(Item item)
     {
-        Debug.Log("Item selected " + item.Template.Name);
         currentOnItemChosen?.Invoke(item);
-
         Hide();
     }
 

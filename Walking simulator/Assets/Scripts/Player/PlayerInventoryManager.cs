@@ -147,6 +147,7 @@ public class PlayerInventoryManager : MonoBehaviour
                 }
             }
         }
+
         return false;
 
     }
@@ -179,7 +180,7 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-    private void SetCurrentItem(Item item)
+    public void SetCurrentItem(Item item)
     {
         if (_currentItem != null)
         {

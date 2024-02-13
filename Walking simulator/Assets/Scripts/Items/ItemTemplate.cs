@@ -11,13 +11,15 @@ namespace Molioo.Simulator.Items
 
         public bool Stackable;
 
+        public bool CanBeEquipped;
+
+        public Sprite Icon;
+
         public Item ItemPrefab = null;
 
         public bool ShouldBeSpawnedAsBoneChild;
 
         public bool AlwaysEquipped;
-
-        public Sprite Icon;
 
         public HumanBodyBones BoneParent;
 
