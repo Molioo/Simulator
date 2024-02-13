@@ -23,7 +23,7 @@ public class PhotoMakerObject : MonoBehaviour
     private Transform _photoSpawnTransform = null;
 
     private WaitForEndOfFrame _waitForFrame;
-    private WaitForSeconds _waitForSeconds;
+    private WaitForSecondsRealtime _waitForSeconds;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class PhotoMakerObject : MonoBehaviour
     private void InitializeObject()
     {
         _waitForFrame = new WaitForEndOfFrame();
-        _waitForSeconds = new WaitForSeconds(1f);
+        _waitForSeconds = new WaitForSecondsRealtime(1f);
     }
 
     public void TakePhoto()
@@ -48,14 +48,19 @@ public class PhotoMakerObject : MonoBehaviour
         SwitchCamera(true);
         GameUIManager.Instance.SwitchAllUIVisibility(false);
 
+        Time.timeScale = 0.001f;
         yield return _waitForFrame;
 
         TakeScreenShot();
+
+
         yield return _waitForSeconds;
 
         SpawnPhoto();
 
         SwitchCamera(false);
+        Time.timeScale = 1f;
+
         GameUIManager.Instance.SwitchAllUIVisibility(true);
     }
 
