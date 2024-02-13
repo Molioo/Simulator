@@ -1,19 +1,25 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 namespace Molioo.Simulator.Quests
 {
     public class QuestsManager : Singleton<QuestsManager>
     {
+        public Action<QuestData> OnQuestStatusUpdate;
+
         [SerializeField]
         private List<QuestTemplate> _allQuestsTemplates = new List<QuestTemplate>();
 
         [SerializeField]
         private List<QuestData> _currentQuests = new List<QuestData>();
 
-        private void Start()
+        private IEnumerator Start()
         {
             //Test
+            yield return new WaitForSeconds(2);
             SetQuestAsActive(_allQuestsTemplates[0]);
         }
 
@@ -43,9 +49,13 @@ namespace Molioo.Simulator.Quests
         {
             if (!IsQuestInList(template, _currentQuests))
             {
-                QuestData newQuest = new QuestData(template);
-                newQuest.QuestStatus = EQuestStatus.InProgress;
+                QuestData newQuest = new QuestData(template)
+                {
+                    QuestStatus = EQuestStatus.InProgress
+                };
+
                 _currentQuests.Add(newQuest);
+                OnQuestStatusUpdate?.Invoke(newQuest);
             }
             else
             {
@@ -57,9 +67,13 @@ namespace Molioo.Simulator.Quests
         {
             if (!IsQuestInList(template, _currentQuests))
             {
-                QuestData newQuest = new QuestData(template);
-                newQuest.QuestStatus = EQuestStatus.Discovered;
+                QuestData newQuest = new QuestData(template)
+                {
+                    QuestStatus = EQuestStatus.Discovered
+                };
+
                 _currentQuests.Add(newQuest);
+                OnQuestStatusUpdate?.Invoke(newQuest);
             }
         }
 
@@ -70,6 +84,7 @@ namespace Molioo.Simulator.Quests
                 if (_currentQuests[i].QuestID == questTemplate.QuestID)
                 {
                     _currentQuests[i].QuestStatus = EQuestStatus.InProgress;
+                    OnQuestStatusUpdate?.Invoke(_currentQuests[i]);
                 }
             }
         }

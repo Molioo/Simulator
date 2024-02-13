@@ -2,7 +2,7 @@ using Molioo.Simulator.Quests;
 using TMPro;
 using UnityEngine;
 
-public class QuestPanelTask : MonoBehaviour
+public class UIQuestPanelTask : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI _taskDescriptionText = null;
@@ -10,11 +10,16 @@ public class QuestPanelTask : MonoBehaviour
     [SerializeField]
     private RectTransform _taskDescriptionRect = null;
 
+    public float PreferredHeight
+    {
+        get => _taskDescriptionText.preferredHeight;
+    }
+
     private QuestTaskData _taskData;
 
     private void Update()
     {
-        if(Time.frameCount % 10 == 0)
+        if(Time.frameCount % 60 == 0)
         {
             SetTaskText();
         }

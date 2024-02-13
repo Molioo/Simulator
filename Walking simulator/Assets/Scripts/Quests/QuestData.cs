@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace Molioo.Simulator.Quests
 {
@@ -13,7 +12,7 @@ namespace Molioo.Simulator.Quests
 
         public List<QuestTaskData> Tasks = new List<QuestTaskData>();
 
-       // [NonSerialized]
+        // [NonSerialized]
         public QuestTemplate Template;
 
         public QuestData(QuestTemplate template)
@@ -53,7 +52,7 @@ namespace Molioo.Simulator.Quests
 
         public bool TryToAddProgressToTask(string taskID, int progressToAdd)
         {
-            UnityEngine.Debug.Log("Checing for task " + taskID + " in " + QuestID);
+            UnityEngine.Debug.Log("Checking for task " + taskID + " in " + QuestID);
             for (int i = 0; i < Tasks.Count; i++)
             {
                 UnityEngine.Debug.Log("QuestTaskId is " + Tasks[i].QuestTaskId + " and taskId is " + taskID);
