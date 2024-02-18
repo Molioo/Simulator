@@ -19,7 +19,7 @@ public static class SaveSystem
         _saveables = new List<ISaveable>();
 
         // FInd all objects, even in a large scene this may only take a second or 2.
-        GameObject[] gos = GameObject.FindObjectsOfType<GameObject>();
+        GameObject[] gos = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         // Iterate the objects.
         foreach (GameObject go in gos)
         {
@@ -33,6 +33,10 @@ public static class SaveSystem
         _saveables.AddRange(SaveableAssetsReferenceList.Instance.GetSaveableAssets());
     }
 
+    public static bool HasSave()
+    {
+        return File.Exists(SaveFilePath);
+    }
 
     public static void SaveData()
     {
