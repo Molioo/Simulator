@@ -12,4 +12,16 @@ public class GameManager : Singleton<GameManager>
         Cursor.visible = visible;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            SaveSystem.SaveData();
+        }
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            SaveSystem.LoadData();
+        }
+    }
+
 }

@@ -92,20 +92,20 @@ public class ProgressableObject : MonoBehaviour, ISaveable
         }
     }
 
-    public Dictionary<string, object> OnSave()
+    public Dictionary<string, string> OnSave()
     {
-        Dictionary<string, object> dataToSave = new Dictionary<string, object>
+        Dictionary<string, string> dataToSave = new Dictionary<string, string>
         {
-            {nameof(_currentStepIndex), _currentStepIndex }
+            {nameof(_currentStepIndex), _currentStepIndex.ToString() }
         };
         return dataToSave;
     }
 
-    public void OnLoad(Dictionary<string, object> data)
+    public void OnLoad(Dictionary<string, string> data)
     {
         if (data.ContainsKey(nameof(_currentStepIndex)))
         {
-            _currentStepIndex = (int)data[nameof(_currentStepIndex)];
+            _currentStepIndex = int.Parse(data[nameof(_currentStepIndex)]);
         }
     }
 }

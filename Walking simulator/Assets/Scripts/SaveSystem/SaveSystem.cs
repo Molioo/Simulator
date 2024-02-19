@@ -1,3 +1,7 @@
+using Molioo.Simulator.Quests;
+using Newtonsoft.Json;
+using Palmmedia.ReportGenerator.Core.Common;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -45,7 +49,7 @@ public static class SaveSystem
             FindSaveObjects();
 
         // Create our data object
-        Dictionary<string, Dictionary<string, object>> allData = new Dictionary<string, Dictionary<string, object>>();
+        Dictionary<string, Dictionary<string, string>> allData = new Dictionary<string, Dictionary<string, string>>();
         // Collect all the data.
         foreach (ISaveable saveable in _saveables)
         {
@@ -55,8 +59,12 @@ public static class SaveSystem
             }
             allData.Add(saveable.UniqueID, saveable.OnSave());
         }
+
+        Debug.Log("Saveables count " + allData.Count);
+        SaveWrapper saveWrapper = new SaveWrapper(allData);
+        SaveDataJson(saveWrapper);
         //Save the data.
-        SaveDataBinary(allData);
+        //SaveDataBinary(allData);
     }
 
     /// <summary>
@@ -69,19 +77,28 @@ public static class SaveSystem
             FindSaveObjects();
 
         //Get our data
-        Dictionary<string, Dictionary<string, object>> allData = LoadDataBinary<Dictionary<string, Dictionary<string, object>>>();
-        if (allData == null)
+        //Dictionary<string, Dictionary<string, object>> allData = LoadDataBinary<Dictionary<string, Dictionary<string, object>>>();
+        Debug.Log("Try to load wrapper");
+        SaveWrapper wrapper = LoadDataJson();
+        if (wrapper.Data == null)
         {
-            Debug.LogWarning("Save File NOT FOUND");
+            Debug.LogError("Save File NOT FOUND");
             return;
         }
+        else
+        {
+            Debug.Log("Save file data was not null");
+        }
+
+        Debug.Log("Saveables " + _saveables.Count);
 
         //Iterate and load onto our objects
         foreach (ISaveable saveable in _saveables)
         {
-            if (allData.ContainsKey(saveable.UniqueID))
+            if (wrapper.Data.ContainsKey(saveable.UniqueID))
             {
-                saveable.OnLoad(allData[saveable.UniqueID]);
+                Debug.Log("Loaded data for " + saveable.UniqueID);
+                saveable.OnLoad(wrapper.Data[saveable.UniqueID]);
             }
             else
             {
@@ -90,11 +107,49 @@ public static class SaveSystem
         }
     }
 
-    public static void DebugData(Dictionary<string, object> objectData)
+    public static void DebugData(Dictionary<string, string> objectData)
     {
-        foreach (KeyValuePair<string, object> kvp in objectData)
+        foreach (KeyValuePair<string, string> kvp in objectData)
         {
             Debug.Log($"Key: { kvp.Key.ToString()}, Value: {kvp.Value.ToString()}");
+        }
+    }
+
+    public static void SaveDataJson(SaveWrapper wrapper)
+    {
+        StreamWriter file = new StreamWriter(SaveFilePath, false);
+        //string content = JsonUtility.ToJson(wrapper);
+        string content = JsonConvert.SerializeObject(wrapper, Formatting.None);
+        file.Write(content);
+        file.Close();
+        Debug.Log("Saved current quests");
+        Debug.Log(content);
+    }
+
+    public static SaveWrapper LoadDataJson()
+    {
+        try
+        {
+            string jsonContent = File.ReadAllText(SaveFilePath);
+            Debug.Log("Loaded json " + jsonContent);
+            if (string.IsNullOrEmpty(jsonContent))
+            {
+                Debug.Log("File was empty or nulled");
+                return new SaveWrapper();
+            }
+            else
+            {
+                //SaveWrapper wrapper = JsonUtility.FromJson<SaveWrapper>(jsonContent);
+                Debug.Log("Illl try to deserialize it");
+                SaveWrapper wrapper = JsonConvert.DeserializeObject<SaveWrapper>(jsonContent);
+                Debug.Log("And after, wrapper is null? " + (wrapper==null));
+                return wrapper;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Something went wrong when reading file : " + e.Message);
+            return new SaveWrapper();
         }
     }
 
@@ -120,14 +175,22 @@ public static class SaveSystem
         return (T)obj;
     }
 
-    [SerializeField]
-    private class SaveWrapper
+    public class SaveWrapper
     {
-        public Dictionary<string, Dictionary<string, object>> Data;
+        public Dictionary<string, Dictionary<string, string>> Data;
+        public int A = 5;
+        public string Name = "Watafak";
 
-        public SaveWrapper(Dictionary<string, Dictionary<string, object>> data)
+        public SaveWrapper()
+        {
+
+        }
+
+        public SaveWrapper(Dictionary<string, Dictionary<string, string>> data)
         {
             Data = data;
+            A = 10;
+            Name = "Tomek";
         }
     }
 }

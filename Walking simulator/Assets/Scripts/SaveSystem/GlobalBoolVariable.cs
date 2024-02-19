@@ -15,20 +15,20 @@ public class GlobalBoolVariable : ScriptableObject, ISaveable
 
     public string UniqueID => UID_PREFIX + _uniqueID;
 
-    public Dictionary<string, object> OnSave()
+    public Dictionary<string, string> OnSave()
     {
-        Dictionary<string, object> dataToSave = new Dictionary<string, object>
+        Dictionary<string, string> dataToSave = new Dictionary<string, string>
         {
-            {nameof(Value), Value }
+            {nameof(Value), Value.ToString() }
         };
         return dataToSave;
     }
 
-    public void OnLoad(Dictionary<string, object> data)
+    public void OnLoad(Dictionary<string, string> data)
     {
         if (data.ContainsKey(nameof(Value)))
         {
-            Value = (bool)data[nameof(Value)];
+            Value = bool.Parse(data[nameof(Value)]);
         }
     }
 }

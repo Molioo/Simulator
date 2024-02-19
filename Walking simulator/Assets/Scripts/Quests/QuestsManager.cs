@@ -16,6 +16,8 @@ namespace Molioo.Simulator.Quests
         [SerializeField]
         private List<QuestData> _currentQuests = new List<QuestData>();
 
+        public List<QuestData> QuestData => _currentQuests;
+
         private IEnumerator Start()
         {
             //Test
@@ -43,6 +45,11 @@ namespace Molioo.Simulator.Quests
         public void LoadCurrentQuests()
         {
             _currentQuests = QuestsSaveSystem.LoadCurrentQuests();
+        }
+
+        public void QuestsDataLoaded(List<QuestData> questsData)
+        {
+            _currentQuests = questsData;
         }
 
         public void SetQuestAsActive(QuestTemplate template)

@@ -12,7 +12,7 @@ namespace Molioo.Simulator.Quests
 
         public List<QuestTaskData> Tasks = new List<QuestTaskData>();
 
-        // [NonSerialized]
+        //[NonSerialized]
         public QuestTemplate Template;
 
         public QuestData(QuestTemplate template)
