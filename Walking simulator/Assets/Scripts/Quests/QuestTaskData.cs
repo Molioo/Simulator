@@ -14,6 +14,7 @@ namespace Molioo.Simulator.Quests
 
         public int RequiredValue = 1;
 
+        [NonSerialized]
         public QuestTaskTemplate Template;
 
         public QuestTaskData(QuestTaskTemplate template)

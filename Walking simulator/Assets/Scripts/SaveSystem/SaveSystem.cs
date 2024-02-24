@@ -1,10 +1,7 @@
-using Molioo.Simulator.Quests;
 using Newtonsoft.Json;
-using Palmmedia.ReportGenerator.Core.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public static class SaveSystem
@@ -14,22 +11,17 @@ public static class SaveSystem
 
     private static List<ISaveable> _saveables = new List<ISaveable>();
 
-    private static BinaryFormatter formatter;
-
-
     public static void FindSaveObjects()
     {
-        //_saveObjects = new List<GameObject>();
         _saveables = new List<ISaveable>();
 
         // FInd all objects, even in a large scene this may only take a second or 2.
         GameObject[] gos = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
-        // Iterate the objects.
+
         foreach (GameObject go in gos)
         {
             if (go.TryGetComponent(out ISaveable saveable))
             {
-                //_saveObjects.Add(go);
                 _saveables.Add(saveable);
             }
         }
@@ -66,9 +58,7 @@ public static class SaveSystem
         SaveDataJson(saveWrapper);
     }
 
-    /// <summary>
-    /// Load the data stucture from the file system.
-    /// </summary>
+  
     public static void LoadData()
     {
         if (_saveables == null || _saveables.Count == 0)
@@ -91,7 +81,6 @@ public static class SaveSystem
                 Debug.Log($"Saveable with unique id {saveable.UniqueID} is not in all data list");
             }
         }
-
     }
 
     public static void SaveDataJson(SaveWrapper wrapper)
@@ -125,27 +114,6 @@ public static class SaveSystem
             Debug.Log("Something went wrong when reading file : " + e.Message);
             return new SaveWrapper();
         }
-    }
-
-    private static void SaveDataBinary(object obj)
-    {
-        formatter = new BinaryFormatter();
-        FileStream fileStream = new FileStream(SaveFilePath, FileMode.Create, FileAccess.Write);
-        formatter.Serialize(fileStream, obj);
-        fileStream.Close();
-    }
-
-    private static T LoadDataBinary<T>()
-    {
-        object obj = null;
-        formatter = new BinaryFormatter();
-        if (File.Exists(SaveFilePath))
-        {
-            FileStream fileStream = new FileStream(SaveFilePath, FileMode.Open, FileAccess.Read);
-            obj = formatter.Deserialize(fileStream);
-            fileStream.Close();
-        }
-        return (T)obj;
     }
 
     public class SaveWrapper

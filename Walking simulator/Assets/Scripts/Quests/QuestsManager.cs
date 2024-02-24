@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 namespace Molioo.Simulator.Quests
 {
-    public class QuestsManager : Singleton<QuestsManager>
+    public class QuestsManager : Singleton<QuestsManager>, ISaveable
     {
         public Action<QuestData> OnQuestStatusUpdate;
 
@@ -18,38 +16,15 @@ namespace Molioo.Simulator.Quests
 
         public List<QuestData> QuestData => _currentQuests;
 
-        private IEnumerator Start()
-        {
-            //Test
-            yield return new WaitForSeconds(2);
-            SetQuestAsActive(_allQuestsTemplates[0]);
-        }
+        public string UniqueID => "questManager";
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.O))
+            if(Input.GetKeyDown(KeyCode.I))
             {
-                SaveCurrentQuests();
+                SetQuestAsActive(_allQuestsTemplates[0]);
             }
-            else if (Input.GetKeyDown(KeyCode.P))
-            {
-                LoadCurrentQuests();
-            }
-        }
-
-        public void SaveCurrentQuests()
-        {
-            QuestsSaveSystem.SaveQuestsProgress(_currentQuests);
-        }
-
-        public void LoadCurrentQuests()
-        {
-            _currentQuests = QuestsSaveSystem.LoadCurrentQuests();
-        }
-
-        public void QuestsDataLoaded(List<QuestData> questsData)
-        {
-            _currentQuests = questsData;
+         
         }
 
         public void SetQuestAsActive(QuestTemplate template)
@@ -147,5 +122,33 @@ namespace Molioo.Simulator.Quests
             return false;
         }
 
+        public Dictionary<string, string> OnSave()
+        {
+            string content = JsonUtility.ToJson(new QuestsWrapper(_currentQuests));
+
+            Dictionary<string,string> keyValuePairs = new Dictionary<string, string>
+            {
+                { "qd", content }
+            };
+            return keyValuePairs;
+        }
+
+        public void OnLoad(Dictionary<string, string> data)
+        {
+            if(data.ContainsKey("qd"))
+            {
+                QuestsWrapper wrapper = JsonUtility.FromJson<QuestsWrapper>(data["qd"]);
+                if(wrapper.CurrentQuests != null)
+                {
+                    _currentQuests = wrapper.CurrentQuests;
+                }
+
+                foreach (QuestData quest in _currentQuests)
+                {
+                    quest.RefreshTaskTemplates();
+                    OnQuestStatusUpdate?.Invoke(quest);
+                }
+            }
+        }
     }
 }
