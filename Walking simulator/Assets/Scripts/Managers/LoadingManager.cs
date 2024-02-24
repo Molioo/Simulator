@@ -10,12 +10,12 @@ public class LoadingManager : Singleton<LoadingManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    public void LoadGameScene()
+    public void LoadGameScene(bool loadSaveData)
     {
-        StartCoroutine(LoadGameSceneRoutine());
+        StartCoroutine(LoadGameSceneRoutine(loadSaveData));
     }
 
-    private IEnumerator LoadGameSceneRoutine()
+    private IEnumerator LoadGameSceneRoutine(bool loadData)
     {
         yield return UiLoadingPanelController.Instance.FadeIn();
 
@@ -31,7 +31,10 @@ public class LoadingManager : Singleton<LoadingManager>
             yield return null;
         }
 
-        SaveSystem.LoadData();
+        if(loadData)
+        {
+            SaveSystem.LoadData();
+        }
 
         yield return UiLoadingPanelController.Instance.FadeOut();
     }

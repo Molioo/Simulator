@@ -1,6 +1,8 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour, ISaveable
 {
     [Header("Other components")]
     [SerializeField] private Animator _playerAnimator=null;
@@ -27,6 +29,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private Vector3 _inputForce;
     private bool _isGrounded = true;
+
+    public string UniqueID => "playerMovement";
 
     private void Awake()
     {
@@ -114,5 +118,22 @@ public class PlayerMovementController : MonoBehaviour
         return vector;
     }
 
+    public Dictionary<string, string> OnSave()
+    {
+        Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+        keyValuePairs.Add("x", transform.position.x.ToString("F2"));
+        keyValuePairs.Add("y", transform.position.y.ToString("F2"));
+        keyValuePairs.Add("z", transform.position.z.ToString("F2"));
 
+        return keyValuePairs;
+    }
+
+    public void OnLoad(Dictionary<string, string> data)
+    {
+        if (data.ContainsKey("x") && data.ContainsKey("y") && data.ContainsKey("z"))
+        {
+            Vector3 newPosition = new Vector3(float.Parse(data["x"]), float.Parse(data["y"]), float.Parse(data["z"]));
+            transform.position = newPosition;
+        }
+    }
 }

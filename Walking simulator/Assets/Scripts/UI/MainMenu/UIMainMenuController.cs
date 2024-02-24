@@ -12,12 +12,12 @@ public class UIMainMenuController : MonoBehaviour
    
     public void OnNewGameButtonClicked()
     {
-        LoadingManager.Instance.LoadGameScene();
+        LoadingManager.Instance.LoadGameScene(false);
     }
 
     public void OnContinueButtonClicked()
     {
-        LoadingManager.Instance.LoadGameScene();
+        LoadingManager.Instance.LoadGameScene(true);
     }
 
     public void OnSettingsButtonClicked()
