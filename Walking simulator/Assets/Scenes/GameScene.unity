@@ -565,10 +565,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 74765547}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: _interactions.Array.data[1].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 74765547}
@@ -587,6 +583,10 @@ PrefabInstance:
     - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: _interactions.Array.data[1].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185516797118816500, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+      propertyPath: _uniqueId
+      value: trash2
       objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_RootOrder
@@ -635,41 +635,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 74765547}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
 --- !u!4 &74765535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 74765534}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &74765536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+--- !u!114 &74765547 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6329769110735346197, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 74765534}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &74765547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74765536}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!114 &74765549 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 490529316289575869, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 74765534}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74765536}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f30effa1d9f81640a61ecc7aeadc1e4, type: 3}
@@ -901,37 +890,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashObject (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 187780079}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddProgressToTask
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Molioo.Simulator.Quests.AddProgressToTaskHelper, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
+    - target: {fileID: 7185516797118816500, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+      propertyPath: _uniqueId
+      value: trash7
       objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -976,35 +937,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 187780079}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
---- !u!1 &187780067 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-  m_PrefabInstance: {fileID: 187780066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &187780068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 187780066}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &187780079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187780067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!1 &204904069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,37 +1217,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashObject (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 278062602}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddProgressToTask
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Molioo.Simulator.Quests.AddProgressToTaskHelper, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
+    - target: {fileID: 7185516797118816500, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+      propertyPath: _uniqueId
+      value: trash3
       objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1353,35 +1264,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 278062602}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
 --- !u!4 &278062590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 278062589}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &278062591 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-  m_PrefabInstance: {fileID: 278062589}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &278062602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278062591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!1 &296109167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,37 +1931,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashObject (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 441001000}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddProgressToTask
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Molioo.Simulator.Quests.AddProgressToTaskHelper, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
+    - target: {fileID: 7185516797118816500, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+      propertyPath: _uniqueId
+      value: trash10
       objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2117,35 +1978,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 441001000}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
 --- !u!4 &441000988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 441000987}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &441000989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-  m_PrefabInstance: {fileID: 441000987}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &441001000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441000989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!1 &451026603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,37 +3671,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashObject (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 891798744}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddProgressToTask
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Molioo.Simulator.Quests.AddProgressToTaskHelper, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
+    - target: {fileID: 7185516797118816500, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+      propertyPath: _uniqueId
+      value: trash8
       objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3907,35 +3718,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 891798744}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
 --- !u!4 &891798732 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 891798731}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &891798733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-  m_PrefabInstance: {fileID: 891798731}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &891798744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891798733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!1 &894185900
 GameObject:
   m_ObjectHideFlags: 0
@@ -5994,37 +5783,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashObject (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1302268948}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddProgressToTask
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Molioo.Simulator.Quests.AddProgressToTaskHelper, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
+    - target: {fileID: 7185516797118816500, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+      propertyPath: _uniqueId
+      value: trash5
       objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6069,35 +5830,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1302268948}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
 --- !u!4 &1302268936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 1302268935}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1302268937 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-  m_PrefabInstance: {fileID: 1302268935}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1302268948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302268937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!1 &1315529436
 GameObject:
   m_ObjectHideFlags: 0
@@ -6872,37 +6611,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashObject (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1648383756}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddProgressToTask
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Molioo.Simulator.Quests.AddProgressToTaskHelper, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
+    - target: {fileID: 7185516797118816500, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+      propertyPath: _uniqueId
+      value: trash9
       objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6947,35 +6658,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1648383756}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
 --- !u!4 &1648383744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 1648383743}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1648383745 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-  m_PrefabInstance: {fileID: 1648383743}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1648383756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648383745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!1 &1694593029
 GameObject:
   m_ObjectHideFlags: 0
@@ -7100,37 +6789,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashObject (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1724914093}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddProgressToTask
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Molioo.Simulator.Quests.AddProgressToTaskHelper, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
+    - target: {fileID: 7185516797118816500, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+      propertyPath: _uniqueId
+      value: trash4
       objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7175,35 +6836,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1724914093}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
 --- !u!4 &1724914081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 1724914080}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1724914082 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-  m_PrefabInstance: {fileID: 1724914080}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1724914093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724914082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!1 &1727117603
 GameObject:
   m_ObjectHideFlags: 0
@@ -7403,37 +7042,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashObject (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1775083739}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddProgressToTask
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Molioo.Simulator.Quests.AddProgressToTaskHelper, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
+    - target: {fileID: 7185516797118816500, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
+      propertyPath: _uniqueId
+      value: trash6
       objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7478,35 +7089,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1775083739}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
 --- !u!4 &1775083727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 1775083726}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1775083728 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-  m_PrefabInstance: {fileID: 1775083726}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1775083739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775083728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!1 &1777123303
 GameObject:
   m_ObjectHideFlags: 0
@@ -10267,38 +9856,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashObject
       objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 6894643862219550394}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AddProgressToTask
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Molioo.Simulator.Quests.AddProgressToTaskHelper, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834695023552591241, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.713468
@@ -10342,35 +9899,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6894643862219550394}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
 --- !u!4 &6894643862219550382 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522145288502149549, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
   m_PrefabInstance: {fileID: 6894643862219550381}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6894643862219550383 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 102664267961791806, guid: 7c9ecc12143b59748ad8238317b908ca, type: 3}
-  m_PrefabInstance: {fileID: 6894643862219550381}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6894643862219550394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894643862219550383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questTaskId: qtask_pickTrash1
-  _valueToAdd: 1
 --- !u!1001 &7029208544218767631
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,4 +7,5 @@ public interface ISaveable
     void OnLoad(Dictionary<string, string> data);
 
     string UniqueID { get; }
+
 }

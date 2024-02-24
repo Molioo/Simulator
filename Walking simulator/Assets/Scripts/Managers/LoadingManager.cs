@@ -31,9 +31,13 @@ public class LoadingManager : Singleton<LoadingManager>
             yield return null;
         }
 
-        if(loadData)
+        if (loadData)
         {
             SaveSystem.LoadData();
+        }
+        else
+        {
+            SaveSystem.FindSaveObjects();
         }
 
         yield return UiLoadingPanelController.Instance.FadeOut();

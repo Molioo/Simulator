@@ -96,16 +96,16 @@ public class ProgressableObject : MonoBehaviour, ISaveable
     {
         Dictionary<string, string> dataToSave = new Dictionary<string, string>
         {
-            {nameof(_currentStepIndex), _currentStepIndex.ToString() }
+            {"csi", _currentStepIndex.ToString() }
         };
         return dataToSave;
     }
 
     public void OnLoad(Dictionary<string, string> data)
     {
-        if (data.ContainsKey(nameof(_currentStepIndex)))
+        if (data.ContainsKey("csi"))
         {
-            _currentStepIndex = int.Parse(data[nameof(_currentStepIndex)]);
+            _currentStepIndex = int.Parse(data["csi"]);
         }
     }
 }

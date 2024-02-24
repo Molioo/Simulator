@@ -68,12 +68,12 @@ public static class SaveSystem
 
         SaveWrapper wrapper = LoadDataJson();
 
-        Debug.Log("Wrapper.Data is null? " + (wrapper.Data == null));
+        //Debug.Log("Wrapper.Data is null? " + (wrapper.Data == null));
         foreach (ISaveable saveable in _saveables)
         {
             if (wrapper.Data.ContainsKey(saveable.UniqueID))    
             {
-                Debug.Log("Loaded data for " + saveable.UniqueID);
+                //Debug.Log("Loaded data for " + saveable.UniqueID);
                 saveable.OnLoad(wrapper.Data[saveable.UniqueID]);
             }
             else
