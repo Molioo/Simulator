@@ -12,6 +12,8 @@ public class GameUIManager : Singleton<GameUIManager>
         } 
     }
 
+    [SerializeField]
+    private UiPauseMenu _pauseMenuController;
 
     [SerializeField]
     private ReactionTextController _reactionTextController;
@@ -23,6 +25,14 @@ public class GameUIManager : Singleton<GameUIManager>
     private CanvasGroup _canvasGroup = null;
 
     private List<string> windowsOpened = new List<string>();
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _pauseMenuController.SwitchPauseMenu();
+        }
+    }
 
     public void SwitchAllUIVisibility(bool visible)
     {
@@ -41,6 +51,7 @@ public class GameUIManager : Singleton<GameUIManager>
             windowsOpened.Add(name);
         }
 
+        GameManager.SwitchCursorVisible(true);
         Time.timeScale = 0.001f;
     }
 
@@ -53,6 +64,7 @@ public class GameUIManager : Singleton<GameUIManager>
 
         if (windowsOpened.Count == 0)
         {
+            GameManager.SwitchCursorVisible(false);
             Time.timeScale = 1f;
         }
     }

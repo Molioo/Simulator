@@ -1,10 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadingManager : Singleton<LoadingManager>
 {
+    private bool _isLoadingInProgress;
+
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -12,11 +13,27 @@ public class LoadingManager : Singleton<LoadingManager>
 
     public void LoadGameScene(bool loadSaveData)
     {
+        if (_isLoadingInProgress)
+        {
+            return;
+        }
+
         StartCoroutine(LoadGameSceneRoutine(loadSaveData));
+    }
+
+    public void LoadMenuScene()
+    {
+        if (_isLoadingInProgress)
+        {
+            return;
+        }
+
+        StartCoroutine(LoadMenuSceneRoutine());
     }
 
     private IEnumerator LoadGameSceneRoutine(bool loadData)
     {
+        _isLoadingInProgress = true;
         yield return UiLoadingPanelController.Instance.FadeIn();
 
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
@@ -37,9 +54,33 @@ public class LoadingManager : Singleton<LoadingManager>
         }
         else
         {
-            SaveSystem.FindSaveObjects();
+            SaveSystem.FindSaveables();
         }
 
         yield return UiLoadingPanelController.Instance.FadeOut();
+        _isLoadingInProgress = false;
+    }
+
+    private IEnumerator LoadMenuSceneRoutine()
+    {
+        _isLoadingInProgress = true;
+        yield return UiLoadingPanelController.Instance.FadeIn();
+
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+        while (loadOperation.isDone == false)
+        {
+            yield return null;
+        }
+
+        AsyncOperation unloadMenuOperation = SceneManager.UnloadSceneAsync("GameScene");
+        while (unloadMenuOperation.isDone == false)
+        {
+            yield return null;
+        }
+
+        SaveSystem.ClearSaveables();
+
+        yield return UiLoadingPanelController.Instance.FadeOut();
+        _isLoadingInProgress = false;
     }
 }

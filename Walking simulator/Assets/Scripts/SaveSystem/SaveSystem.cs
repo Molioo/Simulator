@@ -11,7 +11,7 @@ public static class SaveSystem
 
     private static List<ISaveable> _saveables = new List<ISaveable>();
 
-    public static void FindSaveObjects()
+    public static void FindSaveables()
     {
         _saveables = new List<ISaveable>();
 
@@ -28,6 +28,11 @@ public static class SaveSystem
 
         _saveables.AddRange(SaveableAssetsReferenceList.Instance.GetSaveableAssets());
     }
+    
+    public static void ClearSaveables()
+    {
+        _saveables?.Clear();
+    }
 
     public static bool HasSave()
     {
@@ -38,7 +43,7 @@ public static class SaveSystem
     {
         if (_saveables == null || _saveables.Count == 0)
         {
-            FindSaveObjects();
+            FindSaveables();
         }
 
         Dictionary<string, Dictionary<string, string>> allData = new Dictionary<string, Dictionary<string, string>>();
@@ -63,7 +68,7 @@ public static class SaveSystem
     {
         if (_saveables == null || _saveables.Count == 0)
         {
-            FindSaveObjects();
+            FindSaveables();
         }
 
         SaveWrapper wrapper = LoadDataJson();

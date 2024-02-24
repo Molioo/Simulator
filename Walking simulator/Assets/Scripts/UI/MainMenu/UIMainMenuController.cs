@@ -7,16 +7,19 @@ public class UIMainMenuController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.SwitchCursorVisible(true);
         _continueButtonRect.gameObject.SetActive(SaveSystem.HasSave());
     }
    
     public void OnNewGameButtonClicked()
     {
+        GameManager.SwitchCursorVisible(false);
         LoadingManager.Instance.LoadGameScene(false);
     }
 
     public void OnContinueButtonClicked()
     {
+        GameManager.SwitchCursorVisible(false);
         LoadingManager.Instance.LoadGameScene(true);
     }
 

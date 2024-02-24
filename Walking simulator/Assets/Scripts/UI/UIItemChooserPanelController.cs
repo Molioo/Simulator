@@ -27,18 +27,16 @@ public class UIItemChooserPanelController : UiWindowBase
 
     private Action<Item> currentOnItemChosen;
 
-    private bool isOpened = false;
-
     private Item currentlyHoveredItem;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && isOpened == false)
+        if (Input.GetKeyDown(KeyCode.Q) && IsShown == false)
         {
             ShowForItems(PlayerSystemsManager.Instance.InventoryManager.AllItems, PlayerSystemsManager.Instance.InventoryManager.SetCurrentItem);
         }
 
-        if (Input.GetKeyUp(KeyCode.Q) && isOpened)
+        if (Input.GetKeyUp(KeyCode.Q) && IsShown)
         {
             if (currentlyHoveredItem!= null)
             {
@@ -58,14 +56,11 @@ public class UIItemChooserPanelController : UiWindowBase
 
         base.Show();
         
-        isOpened = true;
         currentlyHoveredItem = null;
         currentOnItemChosen = onItemChosen;
         itemNameText.text = "";
 
-        GameManager.Instance.SwitchCursorVisible(true);
-
-        SetCanvasGroup(true);
+        itemChooserCanvasGroup.SwitchAllValues(true);
         SpawnItemButtons(items, onItemChosen);
         RepositionItemButtons();
     }
@@ -106,11 +101,9 @@ public class UIItemChooserPanelController : UiWindowBase
     {
         base.Hide();
 
-        isOpened = false;
-        SetCanvasGroup(false);
+        itemChooserCanvasGroup.SwitchAllValues(false);
         DestroyAllItems();
 
-        GameManager.Instance.SwitchCursorVisible(false);
     }
 
     private void DestroyAllItems()
@@ -142,12 +135,5 @@ public class UIItemChooserPanelController : UiWindowBase
     {
         currentOnItemChosen?.Invoke(item);
         Hide();
-    }
-
-    private void SetCanvasGroup(bool isOpened)
-    {
-        itemChooserCanvasGroup.interactable = isOpened;
-        itemChooserCanvasGroup.blocksRaycasts = isOpened;
-        itemChooserCanvasGroup.alpha = isOpened ? 1: 0;
     }
 }
