@@ -1,10 +1,10 @@
 using Molioo.Simulator.Items;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using static SaveSystem;
 
 
-public class PlayerInventoryManager : MonoBehaviour
+public class PlayerInventoryManager : MonoBehaviour, ISaveable
 {
     [SerializeField]
     private Item _defaultItemPrefab;
@@ -24,11 +24,15 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public List<Item> AllItems {  get { return _playerCurrentItems; } }
 
+    public string UniqueID => "inventory";
 
     private void Update()
     {
         if (GameManager.Instance.CurrentPlayerGameMode != EPlayerGameMode.PlayerMovement)
+        {
             return;
+
+        }
 
         CheckForItemSelectInput();
         UpdateCurrentItem();
@@ -48,7 +52,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     private void TryToAddNormalItem(ItemTemplate template)
     {
-        if (!HasItem(template))
+        if (HasItem(template) == false)
         {
             Item normalItem = SpawnItem(template);
             normalItem.Amount = 1;
@@ -209,4 +213,55 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
+    public Dictionary<string, string> OnSave()
+    {
+        string content = JsonUtility.ToJson(new InventoryWrapper(_playerCurrentItems));
+        Dictionary<string, string> keyValuePairs = new Dictionary<string, string>
+            {
+                { "items", content }
+            };
+        return keyValuePairs;
+    }
+
+    public void OnLoad(Dictionary<string, string> data)
+    {
+        if (data.ContainsKey("items"))
+        {
+            InventoryWrapper wrapper = JsonUtility.FromJson<InventoryWrapper>(data["items"]);
+            if (wrapper.Items != null)
+            {
+                foreach (ItemSaveHelper itemSaveHelper in wrapper.Items)
+                {
+                    AddItem(itemSaveHelper.Template, itemSaveHelper.Amount);
+                }
+            }
+        }
+    }
+}
+
+public class InventoryWrapper
+{
+    public List<ItemSaveHelper> Items;
+
+    public InventoryWrapper(List<Item> items)
+    {
+        Items = new List<ItemSaveHelper>();
+        for (int i = 0; i < items.Count; i++)
+        {
+            Items.Add(new ItemSaveHelper(items[i]));
+        }
+    }   
+}
+
+[System.Serializable]
+public class ItemSaveHelper
+{
+    public ItemTemplate Template;
+    public int Amount;
+
+    public ItemSaveHelper(Item item)
+    {
+        Template = item.Template;
+        Amount = item.Amount;
+    }
 }
