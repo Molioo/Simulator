@@ -11,6 +11,8 @@ namespace Molioo.Simulator.Items
 
         public bool Stackable;
 
+        public int MaxAmount;
+
         public bool CanBeEquipped;
 
         public Sprite Icon;

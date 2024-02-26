@@ -55,6 +55,13 @@ public static class SaveSystem
                 Debug.LogError("Saveable Unique ID is null or empty");
                 continue;
             }
+
+            if (allData.ContainsKey(saveable.UniqueID))
+            {
+                Debug.LogError("More than one " + saveable.UniqueID + " on scene. Fix this");
+                continue;
+            }
+
             allData.Add(saveable.UniqueID, saveable.OnSave());
         }
 

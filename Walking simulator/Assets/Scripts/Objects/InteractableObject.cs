@@ -31,7 +31,7 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    public bool IsAnyOptionUsable()
+    public virtual bool IsAnyOptionUsable()
     {
         for (int i = 0; i < _interactions.Count; i++)
         {
@@ -44,7 +44,11 @@ public class InteractableObject : MonoBehaviour
     public string GetInteractionsText()
     {
         StringBuilder builder = new StringBuilder();
-        builder.Append(ObjectName + Environment.NewLine);
+        if (string.IsNullOrEmpty(ObjectName) == false)
+        {
+            builder.Append(ObjectName + Environment.NewLine);
+        }
+
         _interactableKeyCounter = 0;
         for (int i = 0; i < _interactions.Count; i++)
         {

@@ -15,6 +15,7 @@ MonoBehaviour:
   ItemId: item_trashbag
   Name: Trash bag
   Stackable: 0
+  MaxAmount: 0
   CanBeEquipped: 1
   Icon: {fileID: 21300000, guid: 6bdc02c7c03423f46be7cc60e3d3b6c2, type: 3}
   ItemPrefab: {fileID: 6558220901283357800, guid: bd2205255acb38b419e54132e05cac21, type: 3}

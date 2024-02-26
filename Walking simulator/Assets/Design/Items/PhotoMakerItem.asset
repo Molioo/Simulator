@@ -15,6 +15,7 @@ MonoBehaviour:
   ItemId: item_photoMaker
   Name: Camera
   Stackable: 0
+  MaxAmount: 0
   CanBeEquipped: 1
   Icon: {fileID: 0}
   ItemPrefab: {fileID: 865942824077052820, guid: 82405cda36f78a047be993c17577a07e, type: 3}

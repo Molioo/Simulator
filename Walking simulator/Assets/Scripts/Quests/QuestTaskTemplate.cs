@@ -9,11 +9,8 @@ namespace Molioo.Simulator.Quests
 
         public string QuestTaskText = "";
 
-        public bool TaskComplete = false;
-
         public bool ShowProgress = true;
 
         public int RequiredValue = 1;
-
     }
 }

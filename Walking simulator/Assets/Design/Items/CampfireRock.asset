@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2599272a0854e37408434cafcd615bb0, type: 3}
-  m_Name: NailTemplate
+  m_Name: CampfireRock
   m_EditorClassIdentifier: 
-  ItemId: item_nail
-  Name: Nail
+  ItemId: item_campfireRock
+  Name: Stone
   Stackable: 1
-  MaxAmount: 0
+  MaxAmount: 3
   CanBeEquipped: 0
-  Icon: {fileID: 21300000, guid: ea621925910d49d39a1cd3e0ec7a83c9, type: 3}
+  Icon: {fileID: 0}
   ItemPrefab: {fileID: 0}
   ShouldBeSpawnedAsBoneChild: 0
   AlwaysEquipped: 0
-  BoneParent: 18
-  LocalPositionInBone: {x: -0.134, y: -0.08, z: -0.015}
-  LocalRotationInBone: {x: 368.757, y: -12.37, z: 367.103}
+  BoneParent: 0
+  LocalPositionInBone: {x: 0, y: 0, z: 0}
+  LocalRotationInBone: {x: 0, y: 0, z: 0}

@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PickableItemInteractableObject
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: c92e324fd4ace084bb2e6b5582d75783, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: ObjectName
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: InteractionDistance
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].InteractionText
+    value: Pick up
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+    value: PickableItemInteractableObject, Assembly-CSharp
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+    value: AddItemToInventory
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].OnPlayerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].Requirements.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].CanBeUsedMoreThanOnce
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _interactions.Array.data[0].DestroyAfterInteraction
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _uniqueID
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _itemToAdd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _amountToAdd
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _disableOnPickUp
+    value: 1
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []
+  m_CoupledType:
+    m_NativeTypeID: 0
+    m_ManagedTypePPtr: {fileID: 0}
+    m_ManagedTypeFallback: 
+  m_CoupledProperties: []
