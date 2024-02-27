@@ -12,7 +12,7 @@ namespace Molioo.Simulator.Quests
 
         public void AddProgressToTask()
         {
-            if (!string.IsNullOrEmpty(_questTaskId))
+            if (string.IsNullOrEmpty(_questTaskId) == false)
             {
                 QuestsManager.Instance.TryToAddProgressToTask(_questTaskId, _valueToAdd);
             }

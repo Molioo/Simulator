@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3269820388228541534}
   - component: {fileID: 4242574197473481926}
   - component: {fileID: 941153465324447796}
+  - component: {fileID: 5899473148526574833}
+  - component: {fileID: 4779390776819176723}
   m_Layer: 0
   m_Name: PutCampfireRockHere
   m_TagString: Untagged
@@ -88,8 +90,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4779390776819176723}
+          m_TargetAssemblyTypeName: Molioo.Simulator.Quests.AddProgressToTaskHelper,
+            Assembly-CSharp
+          m_MethodName: AddProgressToTask
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     Requirements:
     - {fileID: 941153465324447796}
+    - {fileID: 5899473148526574833}
     CanBeUsedMoreThanOnce: 0
     DestroyAfterInteraction: 0
   _uniqueID: rockplace1
@@ -111,6 +127,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questToCheck: {fileID: 11400000, guid: dcb6346a9ee62054ca94dcfe17ab135f, type: 2}
   _possibleStatuses: 02000000
+--- !u!114 &5899473148526574833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786570804132404821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aeadb68552f13544aea64d188d48384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemToHave: {fileID: 11400000, guid: ad9a8f26d68bf7047b27e285bedc2b95, type: 2}
+  _amountToHave: 1
+--- !u!114 &4779390776819176723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786570804132404821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5217a8e8bb6ca4f41b862368d607eee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _questTaskId: qt_campfirerocks
+  _valueToAdd: 1
 --- !u!1 &6812889289154541341
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +184,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.5212234, z: -0, w: 0.85342026}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7140683178248986404}
@@ -248,7 +292,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.5212234, z: -0, w: 0.85342026}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7140683178248986404}
