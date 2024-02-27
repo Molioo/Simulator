@@ -14,6 +14,8 @@ namespace Molioo.Simulator.Quests
 
         public int RequiredValue = 1;
 
+        public EQuestTaskStatus TaskStatus;
+
         [NonSerialized]
         public QuestTaskTemplate Template;
 
@@ -28,6 +30,7 @@ namespace Molioo.Simulator.Quests
         public void CompleteTask()
         {
             TaskComplete = true;
+            TaskStatus = EQuestTaskStatus.Completed;
         }
 
         public void AddProgressToTask(int valueToAdd)

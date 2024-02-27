@@ -88,7 +88,10 @@ namespace Molioo.Simulator.Quests
             for (int i = 0; i < _currentQuests.Count; i++)
             {
                 if (_currentQuests[i].TryToAddProgressToTask(questTaskID, progress))
+                {
+                    OnQuestStatusUpdate?.Invoke(_currentQuests[i]);
                     break;
+                }
             }
         }
 
@@ -97,7 +100,10 @@ namespace Molioo.Simulator.Quests
             for (int i = 0; i < _currentQuests.Count; i++)
             {
                 if (_currentQuests[i].TryToCompleteTask(questTaskID))
+                {
+                    OnQuestStatusUpdate?.Invoke(_currentQuests[i]);
                     break;
+                }
             }
         }
 
@@ -146,6 +152,7 @@ namespace Molioo.Simulator.Quests
                 foreach (QuestData quest in _currentQuests)
                 {
                     quest.RefreshTaskTemplates();
+                    quest.RefreshTasksStatuses();
                     OnQuestStatusUpdate?.Invoke(quest);
                 }
             }

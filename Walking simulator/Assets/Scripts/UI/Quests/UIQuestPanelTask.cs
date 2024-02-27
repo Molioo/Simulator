@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class UIQuestPanelTask : MonoBehaviour
 {
+    const string STRIKE_START = "<s>";
+    const string STRIKE_END = "</s>";
+
     [SerializeField]
     private TextMeshProUGUI _taskDescriptionText = null;
 
@@ -14,6 +17,8 @@ public class UIQuestPanelTask : MonoBehaviour
     {
         get => _taskDescriptionText.preferredHeight;
     }
+
+    public EQuestTaskStatus TaskStatus => _taskData.TaskStatus;
 
     private QuestTaskData _taskData;
 
@@ -33,7 +38,12 @@ public class UIQuestPanelTask : MonoBehaviour
 
     private void SetTaskText()
     {
-        _taskDescriptionText.text = _taskData.Template.QuestTaskText + (_taskData.Template.ShowProgress ? " "+ _taskData.CurrentValue + "/" + _taskData.RequiredValue : "");
+        //What an abomination I created here
+        string text = _taskData.TaskStatus == EQuestTaskStatus.Completed ? STRIKE_START : "";
+        text += _taskData.Template.QuestTaskText + (_taskData.Template.ShowProgress ? " " + _taskData.CurrentValue + "/" + _taskData.RequiredValue : "");
+        text += _taskData.TaskStatus == EQuestTaskStatus.Completed ? STRIKE_END : "";
+        _taskDescriptionText.text = text;
+
         _taskDescriptionRect.sizeDelta = new Vector2(_taskDescriptionRect.sizeDelta.x, _taskDescriptionText.preferredHeight + 10);
     }
 }

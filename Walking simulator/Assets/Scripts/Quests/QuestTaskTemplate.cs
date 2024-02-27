@@ -12,5 +12,7 @@ namespace Molioo.Simulator.Quests
         public bool ShowProgress = true;
 
         public int RequiredValue = 1;
+
+        public string DependsOnTask = "";
     }
 }

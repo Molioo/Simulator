@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectName: 
-  InteractionDistance: 10
+  InteractionDistance: 3
   _interactions:
   - InteractionText: Put rock
     OnPlayerInteract:

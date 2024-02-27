@@ -19,7 +19,14 @@ MonoBehaviour:
     QuestTaskText: Find and place 8 rocks
     ShowProgress: 1
     RequiredValue: 8
+    DependsOnTask: 
   - QuestTaskId: qt_campfirestick
     QuestTaskText: Gather 10 sticks
     ShowProgress: 1
     RequiredValue: 10
+    DependsOnTask: 
+  - QuestTaskId: qt_dependent
+    QuestTaskText: Wow this is visible only after you placed rocks
+    ShowProgress: 1
+    RequiredValue: 1
+    DependsOnTask: qt_campfirerocks

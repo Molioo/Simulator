@@ -53,6 +53,11 @@ public class UIQuestsPanelController : MonoBehaviour
             {
                 CreateQuestAndAddToList(questData);
             }
+            else
+            {
+                RefreshQuest(questData);
+            }
+
         }
         
         if(questData.QuestStatus == EQuestStatus.Completed)
@@ -66,6 +71,18 @@ public class UIQuestsPanelController : MonoBehaviour
         UIQuestPanelQuest questEntry = Instantiate(_questPanelEntryPrefab, _questsEntriesRect);
         questEntry.SetQuest(questData, _questPanelTaskPrefab);
         _createdQuests.Add(questEntry);
+    }
+
+    private void RefreshQuest(QuestData questData)
+    {
+        foreach (UIQuestPanelQuest quest in _createdQuests)
+        {
+            if (quest.RepresentsQuest(questData))
+            {
+                quest.RefreshTasks();
+                break;
+            }
+        }
     }
 
     private void RemoveQuest(QuestData questData)

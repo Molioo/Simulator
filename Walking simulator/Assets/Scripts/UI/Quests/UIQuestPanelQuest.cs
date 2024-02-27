@@ -1,4 +1,5 @@
 using Molioo.Simulator.Quests;
+using NUnit.Framework.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -26,12 +27,21 @@ public class UIQuestPanelQuest : MonoBehaviour
         _titleText.text = questData.Template.QuestName;
         foreach(QuestTaskData taskData in questData.Tasks)
         {
-            UIQuestPanelTask task = Instantiate(taskPrefab,_tasksRect) as UIQuestPanelTask;
+            UIQuestPanelTask task = Instantiate(taskPrefab,_tasksRect);
             task.SetQuestTask(taskData);
             _createdTasks.Add(task);
         }
+        RefreshTasks();
 
         StartCoroutine(SetHeight());
+    }
+
+    public void RefreshTasks()
+    {
+        foreach (UIQuestPanelTask task in _createdTasks)
+        {
+            task.gameObject.SetActive(task.TaskStatus != EQuestTaskStatus.Hidden);
+        }
     }
 
     public bool RepresentsQuest(QuestData questData)
