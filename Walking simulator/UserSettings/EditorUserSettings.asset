@@ -6,25 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 0506055055035d5d5a58557a12225a44434e4b7e282e766275284467e1b1616e
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 0609035354070b0d540c5b7a12260744154e49297a2c2063747e4a37bab36c6b
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 5a5757560101590a5d0c0e24427b5d44434e4c7a7b7a23677f2b4565b7b5353a
-      flags: 0
-    RecentlyUsedSceneGuid-3:
-      value: 5b0550575351595e5c08082114750f444115417b797175662c7c4835b6b3363b
-      flags: 0
-    RecentlyUsedSceneGuid-4:
       value: 53530452070c5d585c5c0d7048250e4443151929787a73602c714831e7e2626d
       flags: 0
-    RecentlyUsedSceneGuid-5:
+    RecentlyUsedSceneGuid-1:
+      value: 53000750030759090f0a58714126094413164e2f2e7d7e687a714d32e6b6376f
+      flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 5000570057020a5e0e565b27137b5e44124f4f7e7f717469742d4b6bb2b5676c
+      flags: 0
+    RecentlyUsedSceneGuid-3:
       value: 5b53510756055e5a5857557b42755e444f1619787b2b73682b7d4d60b4b56d3a
       flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 05065255540c5b59555e5a764670084412151b792e7875627d7f1830bbb9666e
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 5157065253515a0e590f557242730f44464f4f797b797568287b4536b5b06c60
+      flags: 0
     RecentlyUsedSceneGuid-6:
-      value: 53000750030759090f0a58714126094413164e2f2e7d7e687a714d32e6b6376f
+      value: 5055060257570b5d5b080f7216700d44134f4c727e7d2567287a4c64e0b56d6f
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 5a5757560101590a5d0c0e24427b5d44434e4c7a7b7a23677f2b4565b7b5353a
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 000204545c025c0f085f0a7b117b0d4445161e2b797f7e627e781e64bbb16060
+      flags: 0
+    RecentlyUsedSceneGuid-9:
+      value: 5a52020756540a0e090f092711215e44444f4d722a2b72357a704862e0b6643a
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
@@ -44,3 +53,4 @@ EditorUserSettings:
   m_VCOtherOverlayIcons: 1
   m_VCAllowAsyncUpdate: 1
   m_ArtifactGarbageCollection: 1
+  m_CompressAssetsOnImport: 1
